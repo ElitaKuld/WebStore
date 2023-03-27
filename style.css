@@ -127,7 +127,6 @@
     text-decoration: none;
 }
 
-
 .btn {
     color: #ffffff;
     margin-top: 5%;
@@ -143,42 +142,37 @@
     font-size: 50px;
 }
 
-hr {
-    border-width: 3px;
-    color: darkblue
-}
-
 .shipping{
     width: 10%;
     margin-left: 5%;
     margin-top: 2%;
     alignment: left;
     position: absolute;
-
-}
-
-.form-control-error {
-    color: #b91212;
-}
-
-.form-control-correct {
-    color: #39871c;
-}
-
-btn{
-    margin: 1em;
 }
 
 .container {
-    position: relative;
+    position: static;
     padding-bottom: 20%;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    padding-left: 10%;
 
+}
+.form-control{
+    display: inline-block;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    color: #000000;
 }
 
 input[type="text"]{
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
+    padding-bottom: 2%;
+    margin-bottom: 10%;
 }
 
 input[type="email"]{
@@ -216,3 +210,30 @@ h2 {
     padding-right: 5%;
     padding-left: 5%;
 }
+
+.form-control.error input {
+    color: #b91212;
+}
+
+.form-control.correct input{
+    color: #39871c;
+}
+
+.form-control small{
+    color: #ea241e;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    padding-left: 30%;
+    padding-bottom: 20%;
+    padding-top: 10%;
+
+}
+.form-control.error small{
+    visibility: visible;
+    width: 100%;
+    height: 20%;
+}
+
+

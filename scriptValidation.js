@@ -20,7 +20,7 @@ const checkInputs = () => {
         setSuccess(firstName)
     } else {
         console.log(firstName)
-        setError(firstName, 'Your name should be min 2 letter and max 50 letter')
+        setError(firstName, 'Your first name should be min 2 letter and max 50 letter')
     }
 
 
