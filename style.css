@@ -64,7 +64,7 @@
 }
 
 .confirmation #info {
-    text-align: center;
+    margin-top: 50px;
 }
 
 .confirmation #info-card {
@@ -72,25 +72,19 @@
 }
 
 .confirmation #header {
-    text-align: center;
     color: cornflowerblue;
-    font-size: 50px;
+    font-size-adjust: 50px;
     margin-top: 20px;
+    font-size: 50px;
 }
 
 .confirmation #beginning {
-    text-align: center;
     margin-top: 50px;
 }
 
 .confirmation #status {
     margin-top: 50px;
-    text-align: center;
-}
-
-.confirmation #summary {
-    text-align: center;
-}
+} 
 
 .confirmation hr {
     border-width: 3px;
@@ -108,13 +102,11 @@
 }
 
 .confirmation #shipping {
-    margin-top: 300px;
-    text-align: center;
+    margin-top: 100px;
 }
 
 .confirmation #shipping-card {
     width: 500px;
-
 }
 
 .confirmation #card-holder {
@@ -129,4 +121,8 @@
 
 .confirmation #footer {
     margin-top: 50px;
+}
+
+.confirmation #social-media a{
+    text-decoration: none;
 }

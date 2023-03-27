@@ -1,146 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bekräftelsesida</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="confirmation">
-    <header id="header">STORE NAME</header>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bekräftelsesida</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="confirmation">
+  <div class="container">
+    <header class="text-center" id="header">STORE NAME</header>
     <hr />
-
-    <div id="info" class="container">
-      <div id="info-card" class="card">
-        <div class="card-body">
-          <h1>TACK FÖR DIN BESTÄLLNING!</h1>
-          <h4 id="oderNumber">Ditt ordernummer: .................</h4>
-          <div>
-            <p>
-              Så snart dina varor lämnar vårt lager meddelar vi dig detta samt
-              eventuellt sökbart kolli-id. Beställning lagd före klockan 17:00
-              skickas samma dag, beställning lag efter klockan 17:00 skickas
-              nästkommande vardag.
-            </p>
-          </div>
-          <div>
-            <p>
-              Vår högsta önskan är att du ska bli nöjd med ditt köp, dina
-              produkter och med vår service till dig. Tveka därför inte att
-              kontakta oss om du har några frågor.
-            </p>
-            <p>
-              <a title="Skicka oss mejl" href="mailto:info@butik.se"
-                >info@butik.se</a
-              >
-              - Telefon: +46(0)8 234567
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="status">
-      <h3>Oderstatus</h3>
-      <img src="images/order-status.jpg" alt="Order Status bar" />
-    </div>
-
-    <div id="summary">
-      <h3>Ordersammanfattning</h3>
-      <p id="date"></p>
-    </div>
-
-    <div class="container">
-      <div id="product-image">
-        <img
-          src="images/demo-image.jpg"
-          class="img-fluid img-thumbnail"
-          alt="Produkt bild"
-          id="demo-image"
-        />
-      </div>
-      <div id="product-table">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Produkt</th>
-              <th>Artikelnummer</th>
-              <th>Antal</th>
-              <th>Pris/st.(Moms exkl.)</th>
-              <th>Moms skattesats</th>
-              <th>Moms</th>
-              <th>Totalt(Moms inkl.)</th>
-            </tr>
-          </thead>
-          <tbody class="table-group-divider">
-            <tr>
-              <td>........</td>
-              <td>........</td>
-              <td>1</td>
-              <td>........</td>
-              <td>25%</td>
-              <td>........</td>
-              <td>........</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="container" id="shipping">
-      <h3>Leveransinformation</h3>
-      <div class="card-holder" id="card-holder">
-        <div id="shipping-card" class="card">
-          <div class="card-body">
-            <h5>Kunduppgifter</h5>
-            <p>E-postadress:</p>
-            <p>Mobiltelefon:</p>
-            <p>Kundtyp: Privatperson</p>
-            <h5>Leveransadress:</h5>
-            <p>...Kundnamn...</p>
-            <p>...Adress...</p>
-            <p>...Index Ort...</p>
-            <p>...Land...</p>
+    <div class="row">
+      <div class="col-12">
+        <div id="info" class="container text-center">
+          <div id="info-card" class="card">
+            <div class="card-body">
+              <h1>TACK FÖR DIN BESTÄLLNING!</h1>
+              <h4 id="oderNumber"></h4>
+              <div>
+                <p>
+                  Så snart dina varor lämnar vårt lager meddelar vi dig detta
+                  samt eventuellt sökbart kolli-id. Beställning lagd före
+                  klockan 17:00 skickas samma dag, beställning lag efter
+                  klockan 17:00 skickas nästkommande vardag.
+                </p>
+              </div>
+              <div>
+                <p>
+                  Vår högsta önskan är att du ska bli nöjd med ditt köp, dina
+                  produkter och med vår service till dig. Tveka därför inte
+                  att kontakta oss om du har några frågor.
+                </p>
+                <p>
+                  <a title="Skicka oss mejl" href="mailto:info@butik.se">info@butik.se</a>
+                  - Telefon: +46(0)8 234567
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="beginning";"><a href="#">Tillbaka till toppen</a>
-
-    <footer id="footer">
-      <hr />
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p>
-              Butiksnamn<br />
-              Adress<br />
-              123 45 Stockholm<br />
-              info@butik.se<br />
-              +46(0)8 234567<br />
-            </p>
-          </div>
-          <div class="col">
-            <img src="images/facebook.png" alt="Facebook Logo" /><img
-              src="images/instagram.png"
-              alt="Instagram Logo"
-            />
-          </div>
-          <div class="col">
-            <img src="images/klarna.png" alt="Klarna Logo" />
+      <div class="col-12 text-center" id="status">
+        <h3 class="text-center">Oderstatus</h3>
+        <img class="img-fluid" src="images/order-status.jpg" alt="Order Status bar" />
+      </div>
+      <div class="col-12 text-center" id="summary">
+        <h3>Ordersammanfattning</h3>
+        <p id="date"></p>
+        <div id="product-image"></div>
+        <div class="table-responsive" id="product-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Produkt</th>
+                <th>Artikelnummer</th>
+                <th>Antal</th>
+                <th>Pris/st.(Moms exkl.)</th>
+                <th>Moms skattesats</th>
+                <th>Moms</th>
+                <th>Totalt(Moms inkl.)</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider" id="product-info"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 text-center" id="shipping">
+        <h3 class="text-center">Leveransinformation</h3>
+        <br />
+        <div class="card-holder" id="card-holder">
+          <div id="shipping-card" class="card">
+            <div class="card-body" id="customer-info"></div>
           </div>
         </div>
       </div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+      <div class="col text-center">
+        <div class="text-center" id="beginning"><a href="#">Tillbaka till toppen</a></div>
+        <footer id="footer">
+          <hr />
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <p>
+                  Butiksnamn<br />
+                  Adress<br />
+                  123 45 Stockholm<br />
+                  <a title="Skicka oss mejl" href="mailto:info@butik.se">info@butik.se</a><br />
+                  +46(0)8 234567<br />
+                </p>
+              </div>
+              <div class="col" id="social-media">
+                <a target="_blank" href="https://www.facebook.com/">
+                  <img class="img-fluid" src="images/facebook.png" alt="Facebook Logo" title="Facebook Start Page" />
+                </a>
+                <a target="_blank" href="https://www.instagram.com/">
+                  <img class="img-fluid" src="images/instagram.png" alt="Instagram Logo" title="Instagram Start Page" />
+                </a>
+                <a target="_blank" href="https://twitter.com/">
+                  <img class="img-fluid" src="images/twitter.png" alt="Twitter Logo" title="Twitter Start Page" />
+                </a>
+              </div>
+              <div class="col">
+                <a target="_blank" href="https://www.klarna.com/se/">
+                  <img class="img-fluid" src="images/klarna.png" alt="Klarna Logo" title="Klarna Start Page" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
