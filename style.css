@@ -178,17 +178,26 @@ btn{
 input[type="text"]{
     overflow: visible;
     background-color: #defcde;
+    border-color: #b8b8b8;
+}
+
+input[type="text"]::after{
+    overflow: visible;
+    background-color: #44b844;
+    max-width: 30%;
+    border-color: #b8b8b8;
 }
 
 input[type="email"]{
     overflow: visible;
     background-color: #defcde;
+    border-color: #b8b8b8;
 }
 
 input[type="password"]{
     overflow: visible;
     background-color: #defcde;
-    border-color: black;
+    border-color: #b8b8b8;
 }
 
 body {
@@ -201,21 +210,16 @@ h2 {
     text-align: center;
     padding-left: 20%;
 }
-h4{
-    padding-left: 20%;
-    padding-top: 5%;
-}
 
 .form-login {
     margin-block-start: 3em;
     position: absolute;
     width: 30%;
     border: 1px solid #b8b8b8;
-    background-color: #dffddf;
+    background-color: #ffffff;
     border-radius: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
     padding-right: 5%;
     padding-left: 5%;
 }
-

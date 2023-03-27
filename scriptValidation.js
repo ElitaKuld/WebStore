@@ -27,7 +27,7 @@ const checkInputs = () => {
     const emailValue = email.value.trim()
     console.log(emailValue)
 
-    if (emailValue.includes('@')){
+    if (emailValue.includes('@') && emailValue.length <= 50){
         setSuccess(email)
     }else {
         console.log(email)
