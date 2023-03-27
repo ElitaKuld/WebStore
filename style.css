@@ -181,13 +181,6 @@ input[type="text"]{
     border-color: #b8b8b8;
 }
 
-input[type="text"]::after{
-    overflow: visible;
-    background-color: #44b844;
-    max-width: 30%;
-    border-color: #b8b8b8;
-}
-
 input[type="email"]{
     overflow: visible;
     background-color: #defcde;
