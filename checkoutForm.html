@@ -39,12 +39,12 @@
                 <div class="col-md-6 md-3">
                     <label for="email">Email</label>
                     <input type="text" id="email" class="form-control" placeholder="yourName@example.com" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
+                    <small style="display: none; color: #ea241e">Your email should include @ and be max 50 letter</small>
                 </div>
                 <div class="col-md-6 md-3">
                     <label for="phoneNumber">Phone Number</label>
                     <input type="text" id="phoneNumber" class="form-control" placeholder="(46)72-123 12 12" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
+                    <small style="display: none; color: #ea241e">Your phone number should only contain numbers, - and ()</small>
                 </div>
             </div>
 
@@ -52,13 +52,13 @@
                 <div class="col-md-6 md-3">
                     <label for="adress">Adress</label>
                     <input type="text" id="adress" class="form-control" placeholder="Adress" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
+                    <small style="display: none; color: #ea241e">Your address should be min 4 letter and max 50 letter</small>
                 </div>
 
                 <div class="col-md-3 md-2">
                     <label for="zip">Zip-Code</label>
                     <input type="text" id="zip" class="form-control" placeholder="Zip-Code" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
+                    <small style="display: none; color: #ea241e">enter zipcode by 6 sign with format 000 00</small>
                 </div>
 
                 <div class="col-md-3 md-2">
@@ -85,7 +85,26 @@
                 <div class="custom-control custom-radio">
                     <input type="radio" name="paymentMethod" id="visa-card" class="custom-control-input" checked
                            required>
-                    <label for="visa-card" class="custom-control-label">Visa card</label>
+                    <label for="visa-card" class="custom-control">Visa card</label>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-6 md-3">
+                    <label for="cc-number">Credit card number</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <small></small>
+                </div>
+                <div class="col-md-3 md-2">
+                    <label for="expire-date">Expire date</label>
+                    <input type="month" class="form-control" id="expire-date">
+                    <small></small>
+                </div>
+                <div class="col-md-3 md-2">
+                    <label for="cvvNumber">CVV</label>
+                    <input type="text" class="form-control" id="cvvNumber">
+                    <small></small>
                 </div>
             </div>
 

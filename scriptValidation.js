@@ -46,7 +46,7 @@ const checkInputs = () => {
         setSuccess(email)
     }else {
         console.log(email)
-        setError(email, 'Your email should include @ and be max 50 letter')
+        setError(email, )
     }
 
 
@@ -55,7 +55,7 @@ const checkInputs = () => {
     if (phoneNumberValue.includes('0123456789') && phoneNumberValue.includes('-') && phoneNumberValue.includes('()')){
         setSuccess(phoneNumber)
     }else {
-        setError(phoneNumber, 'Your phone number should only contain numbers, - and ()')
+        setError(phoneNumber)
     }
 
 
@@ -64,7 +64,7 @@ const checkInputs = () => {
     if (adressValue.length >= 4 && adressValue.length <= 50){
         setSuccess(adress)
     } else {
-        setError(adress, 'Your address should be min 4 letter and max 50 letter')
+        setError(adress)
     }
 
 
@@ -79,10 +79,10 @@ const checkInputs = () => {
 
     const zipCodeValue = zipCode.value.trim()
     console.log(zipCodeValue)
-    if (zipCodeValue.length == 6){ // format funktion?
+    if (zipCodeValue.length == 5){
         setSuccess(zipCode)
     } else {
-        setError(zipCode, 'enter zipcode by 6 sign with format 000 00')
+        setError(zipCode)
     }
 
 
