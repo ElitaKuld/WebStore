@@ -241,7 +241,7 @@
 
 #checkout .container {
     position: static;
-    padding-bottom: 20%;
+    /*padding-bottom: 20%;*/
     border-radius: 5px;
     overflow: hidden;
     width: 800px;
@@ -266,7 +266,7 @@
     color: #000000;
 }
 
-input[type="text"] {
+input[type="text"]{
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
