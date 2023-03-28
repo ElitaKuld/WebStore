@@ -98,7 +98,7 @@ const customer = {
 }
 
 function showCustomerInfo(customer) {
-    document.getElementById("customer-info").innerHTML = "<h5>Kunduppgifter</h5><p>E-postadress: " + customer.email + "</p><p>Mobiltelefon: " +
+    document.getElementById("customer-info").innerHTML = "<h5>Kunduppgifter:</h5><p>E-postadress: " + customer.email + "</p><p>Mobiltelefon: " +
         customer.phoneNumber + "</p><p>Kundtyp: Privatperson</p><h5>Leveransadress:</h5><p>" + customer.fullName + "</p><p>" + customer.address +
         "</p><p>" + customer.zipCode + " " + customer.city + "</p>"
 }
