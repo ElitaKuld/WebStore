@@ -149,7 +149,7 @@
     alignment: left;
     position: absolute;
 }
-
+/* Ändrat till 2 separata (nedanstående) .container styles för att inte blanda ihop containers på olika sidor
 .container {
     position: static;
     padding-bottom: 20%;
@@ -158,8 +158,28 @@
     width: 800px;
     max-width: 100%;
     padding-left: 10%;
+}*/
 
+#checkout .container{
+    position: static;
+    padding-bottom: 20%;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    padding-left: 10%;
 }
+
+#login .container{
+    position: static;
+    padding-bottom: 20%;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    padding-left: 10%;
+}
+
 .form-control{
     display: inline-block;
     margin-bottom: 10px;

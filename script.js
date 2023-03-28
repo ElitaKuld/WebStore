@@ -57,7 +57,7 @@ function loadAPI() {
 //getting from Victor's/Bahareh's pages (from local storage)
 
 function renderAPI(json) {
-    const randomProduct = Math.round(Math.random()*20);
+    const randomProduct = Math.round(Math.random() * 20);
     console.log(randomProduct)
     const product = {
         id: json[randomProduct].id,
@@ -97,10 +97,10 @@ const customer = {
     zipCode: "123 45"
 }
 
-function showCustomerInfo(customer){
+function showCustomerInfo(customer) {
     document.getElementById("customer-info").innerHTML = "<h5>Kunduppgifter</h5><p>E-postadress: " + customer.email + "</p><p>Mobiltelefon: " +
-    customer.phoneNumber + "</p><p>Kundtyp: Privatperson</p><h5>Leveransadress:</h5><p>" + customer.fullName+"</p><p>" + customer.address +
-    "</p><p>" + customer.zipCode +" " + customer.city + "</p>"
+        customer.phoneNumber + "</p><p>Kundtyp: Privatperson</p><h5>Leveransadress:</h5><p>" + customer.fullName + "</p><p>" + customer.address +
+        "</p><p>" + customer.zipCode + " " + customer.city + "</p>"
 }
 
 showCustomerInfo(customer);
