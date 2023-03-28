@@ -127,6 +127,84 @@
     text-decoration: none;
 }
 
+.confirmation a{
+    text-decoration: none;
+}
+
+.order #header {
+    color: cornflowerblue;
+    font-size-adjust: 50;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.order hr {
+    border-width: 3px;
+    color: darkblue
+}
+
+.order #footer {
+    margin-top: 100px;
+}
+
+.order #social-media a {
+    text-decoration: none;
+}
+
+.order #product-image {
+    padding: 50px;
+}
+
+.order #product-info {
+    padding: 50px;
+}
+
+.order #product-info-card {
+    width: 1000px;
+    border: none;
+}
+
+.order #product {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order #idnumber {
+    font-style: italic;
+}
+
+.order #price {
+    font-weight: bold;
+}
+
+.order #button-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+}
+
+.order #logo-card{
+    width: 65px;
+}
+
+.order #logo-envelope{
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 3px;
+}
+
+.order a{
+    text-decoration: none;
+}
+
+.order button{
+    font-weight: bold;
+}
+
 .btn {
     color: #ffffff;
     margin-top: 5%;
@@ -142,13 +220,14 @@
     font-size: 50px;
 }
 
-.shipping{
+.shipping {
     width: 10%;
     margin-left: 5%;
     margin-top: 2%;
     alignment: left;
     position: absolute;
 }
+
 /* Ändrat till 2 separata (nedanstående) .container styles för att inte blanda ihop containers på olika sidor
 .container {
     position: static;
@@ -160,7 +239,7 @@
     padding-left: 10%;
 }*/
 
-#checkout .container{
+#checkout .container {
     position: static;
     padding-bottom: 20%;
     border-radius: 5px;
@@ -170,7 +249,7 @@
     padding-left: 10%;
 }
 
-#login .container{
+#login .container {
     position: static;
     padding-bottom: 20%;
     border-radius: 5px;
@@ -180,14 +259,14 @@
     padding-left: 10%;
 }
 
-.form-control{
+.form-control {
     display: inline-block;
     margin-bottom: 10px;
     padding-bottom: 5px;
     color: #000000;
 }
 
-input[type="text"]{
+input[type="text"] {
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
@@ -195,13 +274,13 @@ input[type="text"]{
     margin-bottom: 10%;
 }
 
-input[type="email"]{
+input[type="email"] {
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
 }
 
-input[type="password"]{
+input[type="password"] {
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
@@ -235,11 +314,11 @@ h2 {
     color: #b91212;
 }
 
-.form-control.correct input{
+.form-control.correct input {
     color: #39871c;
 }
 
-.form-control small{
+.form-control small {
     color: #ea241e;
     position: absolute;
     bottom: 0;
@@ -250,10 +329,9 @@ h2 {
     padding-top: 10%;
 
 }
-.form-control.error small{
+
+.form-control.error small {
     visibility: visible;
     width: 100%;
     height: 20%;
 }
-
-
