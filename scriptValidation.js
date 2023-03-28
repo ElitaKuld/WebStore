@@ -13,14 +13,23 @@ form.addEventListener('submit', (event) => {
 
 const checkInputs = () => {
 
-    const fistNameValue = firstName.value.trim()
-    console.log(fistNameValue)
-    if (fistNameValue.length >= 2 && firstNameValue.length <= 50) {
-
+    const firstNameValue = firstName.value.trim()
+    console.log(firstNameValue)
+    if (firstNameValue.length >= 2 && firstNameValue.length <= 50) {
         setSuccess(firstName)
     } else {
         console.log(firstName)
         setError(firstName, 'Your first name should be min 2 letter and max 50 letter')
+    }
+
+
+    const lastNameValue = lastName.value.trim()
+    console.log(lastNameValue)
+    if (lastNameValue.length >= 2 && lastNameValue.length <= 50) {
+        setSuccess(lastName)
+    } else {
+        console.log(lastName)
+        setError(lastName, 'Your last name should be min 2 letter and max 50 letter')
     }
 
 
