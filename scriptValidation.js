@@ -1,9 +1,16 @@
 
+const error = document.querySelector('#error');
 const form = document.querySelector('#form');
 const firstName = document.querySelector('#firstName');
-const lastName = document.querySelector('#lastName');
+const lastName = document.querySelector('#lastname');
 const email = document.querySelector('#email');
-
+const adress = document.querySelector('#address')
+const city = document.querySelector('#city')
+const phoneNumber = document.querySelector('#phoneNumber')
+const zipCode = document.querySelector('#zip-code')
+const cardNumber = document.querySelector('#cc-number')
+const expiration = document.querySelector('#expire-date')
+const cvv = document.querySelector('#cvvNumber')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -19,7 +26,7 @@ const checkInputs = () => {
         setSuccess(firstName)
     } else {
         console.log(firstName)
-        setError(firstName, 'Your first name should be min 2 letter and max 50 letter')
+        setError(firstName)
     }
 
 
@@ -29,29 +36,81 @@ const checkInputs = () => {
         setSuccess(lastName)
     } else {
         console.log(lastName)
-        setError(lastName, 'Your last name should be min 2 letter and max 50 letter')
+        setError(lastName)
     }
 
 
     const emailValue = email.value.trim()
     console.log(emailValue)
-
-    if (emailValue.includes('@') && emailValue.length <= 50){
+    if (emailValue.includes('@')){
         setSuccess(email)
     }else {
         console.log(email)
         setError(email, 'Your email should include @ and be max 50 letter')
     }
 
+
+    const phoneNumberValue = phoneNumber.value.trim()
+    console.log(phoneNumberValue)
+    if (phoneNumberValue.includes('0123456789') && phoneNumberValue.includes('-') && phoneNumberValue.includes('()')){
+        setSuccess(phoneNumber)
+    }else {
+        setError(phoneNumber, 'Your phone number should only contain numbers, - and ()')
+    }
+
+
+    const adressValue = adress.value.trim()
+    console.log(adressValue)
+    if (adressValue.length >= 4 && adressValue.length <= 50){
+        setSuccess(adress)
+    } else {
+        setError(adress, 'Your address should be min 4 letter and max 50 letter')
+    }
+
+
+    const cityValue = city.value.trim()
+    console.log(cityValue)
+    if (cityValue.length >= 2 && cityValue.length <= 50) {
+        setSuccess(city)
+    } else {
+        setError(city, 'Your city name should be min 2 letter and max 50 letter')
+    }
+
+
+    const zipCodeValue = zipCode.value.trim()
+    console.log(zipCodeValue)
+    if (zipCodeValue.length == 6){ // format funktion?
+        setSuccess(zipCode)
+    } else {
+        setError(zipCode, 'enter zipcode by 6 sign with format 000 00')
+    }
+
+
+    const cardNumberValue = cardNumber.value.trim()
+    console.log(cardNumberValue)
+    if (cardNumberValue === '') {
+        setError(cardNumber, 'Please enter your card number')
+    } else {
+        setSuccess(cardNumber)
+    }
+
+
+    const expirationValue = expiration.value.trim()
+    console.log(expiration)
+
+    if (expirationValue === '') {
+        setError(expiration, 'Please enter card expiration date')
+    } else {
+        setSuccess(expiration)
+    }
 }
 
-const setError = (input, message) => {
+const setError = (input) => {
     const formControl = input.parentElement
     console.log(formControl)
     const small = formControl.querySelector('small')
+    small.style.display="block"
 
-    formControl.className = 'form-control error'
-    small.innerText = message
 }
 const setSuccess = (input) => {
     const formControl = input.parentElement
