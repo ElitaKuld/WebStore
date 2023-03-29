@@ -7,6 +7,8 @@ orderButton.addEventListener('click', () => {
     window.open('checkoutForm.html', '_self');
 });
 
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //funktion för att testa att fylla i information om en beställd produkt
@@ -45,6 +47,23 @@ function renderAPI(json) {
     document.getElementById("intro").innerHTML = product.description;
     document.getElementById("idnumber").innerHTML = "Artikelnummer: " + product.id;
     document.getElementById("product-text-info").innerHTML = product.description;
+    saveProductToLocalStorage(product);
 }
 
 loadAPI();
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+//Spara produkten i localStorage
+function saveProductToLocalStorage(product) {
+    let myProduct = {
+        id: product.id,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+    };
+    console.log(myProduct);
+
+    localStorage.setItem("myProduct", JSON.stringify(myProduct));
+
+}

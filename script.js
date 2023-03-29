@@ -39,41 +39,18 @@ showOrderNumber();
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//funktion för att testa att fylla i information om en beställd produkt
-function loadAPI() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://fakestoreapi.com/products");
-    xhr.send();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.response); // OBS! En sträng
-            const json = JSON.parse(xhr.response);
-            console.log(json);
-            renderAPI(json);
-        }
-    };
-}
+//funktion för att fylla i information om en beställd produkt (från Local Storage)
 
-//getting from Victor's/Bahareh's pages (from local storage)
-
-function renderAPI(json) {
-    const randomProduct = Math.round(Math.random() * 19);
-    console.log(randomProduct)
-    const product = {
-        id: json[randomProduct].id,
-        title: json[randomProduct].title,
-        description: json[randomProduct].description,
-        image: json[randomProduct].image,
-        price: json[randomProduct].price,
-        category: json[randomProduct].category
-    }
-
+function getProductFromLocalStorage() {
+    let product = JSON.parse(localStorage.getItem("myProduct"));
     console.log(product);
+
     document.getElementById("product-image").innerHTML = "<img src=" + product.image + " class='img-fluid img-thumbnail' alt='Produkt bild' id='demo-image'/>"
     document.getElementById("product-info").innerHTML = "<tr><td>" + product.title + "</td><td>" + product.id + "</td><td>1</td><td>" + getPriceWithoutMoms(product.price) + "</td><td>25%</td><td>" + getMoms(product.price) + "</td><td>" + product.price + "</td></tr>"
+
 }
 
-loadAPI();
+getProductFromLocalStorage();
 
 //Funktion för att räkna ut pris utan moms:
 function getPriceWithoutMoms(price) {
@@ -106,3 +83,7 @@ function showCustomerInfo(customer) {
 showCustomerInfo(customer);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+

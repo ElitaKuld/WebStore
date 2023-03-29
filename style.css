@@ -134,7 +134,7 @@
 }
 
 .order #footer {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .order #social-media a {
@@ -193,6 +193,10 @@
 
 .order button{
     font-weight: bold;
+}
+
+.order #beginning {
+    margin-top: 50px;
 }
 
 .btn {
