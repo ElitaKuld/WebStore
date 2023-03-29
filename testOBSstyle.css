@@ -1,0 +1,19 @@
+.index header {
+    color: cornflowerblue;
+    font-size-adjust: 50;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.index hr {
+    border-width: 3px;
+    color: darkblue
+}
+
+.index footer {
+    margin-top: 50px;
+}
+
+.index #beginning {
+    margin-top: 50px;
+}
