@@ -46,19 +46,19 @@
     max-height: 100%;
 }
 
-.index_header {
-    text-align: center;
+header {
     color: cornflowerblue;
-    font-size: 50px;
+    font-size-adjust: 50;
     margin-top: 20px;
+    font-size: 50px;
 }
 
-.index_hr {
+hr {
     border-width: 3px;
     color: darkblue
 }
 
-.index_footer {
+footer {
     margin-top: 50px;
     text-align: center;
 }
@@ -71,24 +71,12 @@
     background-color: rgb(224, 255, 224);
 }
 
-.confirmation #header {
-    color: cornflowerblue;
-    font-size-adjust: 50;
-    margin-top: 20px;
-    font-size: 50px;
-}
-
 .confirmation #beginning {
     margin-top: 50px;
 }
 
 .confirmation #status {
     margin-top: 50px;
-}
-
-.confirmation hr {
-    border-width: 3px;
-    color: darkblue
 }
 
 .confirmation #shipping {
@@ -109,32 +97,12 @@
     width: 200px;
 }
 
-.confirmation #footer {
-    margin-top: 50px;
-}
-
 .confirmation #social-media a {
     text-decoration: none;
 }
 
 .confirmation a{
     text-decoration: none;
-}
-
-.order #header {
-    color: cornflowerblue;
-    font-size-adjust: 50;
-    margin-top: 20px;
-    font-size: 50px;
-}
-
-.order hr {
-    border-width: 3px;
-    color: darkblue
-}
-
-.order #footer {
-    margin-top: 50px;
 }
 
 .order #social-media a {
@@ -204,14 +172,6 @@
     margin-top: 5%;
     margin-bottom: 5%;
     alignment: center;
-
-}
-
-.container #header {
-    color: cornflowerblue;
-    font-size-adjust: 50;
-    margin-top: 20px;
-    font-size: 50px;
 }
 
 .shipping {
@@ -222,17 +182,6 @@
     position: absolute;
 }
 
-/* Ändrat till 2 separata (nedanstående) .container styles för att inte blanda ihop containers på olika sidor
-.container {
-    position: static;
-    padding-bottom: 20%;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 800px;
-    max-width: 100%;
-    padding-left: 10%;
-}*/
-
 #checkout .container {
     position: static;
     /*padding-bottom: 20%;*/
@@ -240,7 +189,6 @@
     overflow: hidden;
     width: 800px;
     max-width: 100%;
-    padding-left: 10%;
 }
 
 #login .container {
@@ -269,8 +217,6 @@ input[type="password"], [type="month"], [type="email"], [type="text"] {
     margin-bottom: 10%;
 }
 
-
-
 body {
     font-family: "Calibri light";
     box-sizing: border-box;
@@ -294,4 +240,8 @@ h2 {
     padding-bottom: 5%;
     padding-right: 5%;
     padding-left: 5%;
+}
+
+#login-pic{
+    width: 80px;
 }
