@@ -91,18 +91,8 @@
     color: darkblue
 }
 
-.confirmation #product-image {
-    margin-left: 50px;
-    float: left;
-}
-
-.confirmation #product-table {
-    float: left;
-    margin-left: 50px;
-}
-
 .confirmation #shipping {
-    margin-top: 100px;
+    margin-top: 75px;
 }
 
 .confirmation #shipping-card {
@@ -151,7 +141,7 @@
     text-decoration: none;
 }
 
-.order #product-image {
+.order #product-image-order {
     padding: 50px;
 }
 

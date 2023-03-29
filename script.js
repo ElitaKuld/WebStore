@@ -42,7 +42,7 @@ showOrderNumber();
 //funktion för att testa att fylla i information om en beställd produkt
 function loadAPI() {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://webacademy.se/fakestore/");
+    xhr.open("GET", "https://fakestoreapi.com/products");
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -57,7 +57,7 @@ function loadAPI() {
 //getting from Victor's/Bahareh's pages (from local storage)
 
 function renderAPI(json) {
-    const randomProduct = Math.round(Math.random() * 20);
+    const randomProduct = Math.round(Math.random() * 19);
     console.log(randomProduct)
     const product = {
         id: json[randomProduct].id,
@@ -104,3 +104,5 @@ function showCustomerInfo(customer) {
 }
 
 showCustomerInfo(customer);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------

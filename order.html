@@ -20,35 +20,21 @@
       <hr />
       <div class="row">
         <!---------------------------------------------------------Product image-------------------------------------------------------------->
-        <div class="col-12 col-sm-6 text-center" id="product-image">
+        <div class="col-12 col-sm-6 text-center" id="product-image-order">
           <div class="card-holder">
             <div class="card">
-              <div class="card-body">
-                <a target="_blank" href="images/demo-image.jpg">
-                  <img
-                    class="img-fluid"
-                    src="images/demo-image.jpg"
-                    alt="Demo image"
-                    title="Öppna högupplöst bild"
-                  />
-                </a>
-              </div>
+              <div class="card-body" id="image-order"></div>
             </div>
           </div>
         </div>
         <!----------------------------------------------------------------Product intro------------------------------------------------------->
         <div class="col-12 col-sm-6" id="product-info">
-          <h1 class="text-center">Produkt namn</h1>
+          <h1 class="text-center" id="product-name">Produkt namn</h1>
           <h3 class="text-center" id="price">Pris:</h3>
 
           <div>
             <br />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              nam, corrupti incidunt nulla nisi laudantium soluta odit
-              aspernatur rerum, illo, recusandae cumque sed numquam? Hic nihil
-              deserunt tempora asperiores dolorem.
-            </p>
+            <p id="intro"></p>
             <div class="text-end">
               <a role="button" href="#product">Läs mer...</a>
             </div>
@@ -91,12 +77,7 @@
               <h1 class="card-title">Produkt beskrivning:</h1>
               <span class="card-subtitle" id="idnumber">Artikelnummer:</span>
               <br /><br /><br />
-              <div class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quibusdam nam, corrupti incidunt nulla nisi laudantium soluta
-                odit aspernatur rerum, illo, recusandae cumque sed numquam? Hic
-                nihil deserunt tempora asperiores dolorem.
-              </div>
+              <div class="card-text" id="product-text-info"></div>
             </div>
           </div>
         </div>
@@ -161,6 +142,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scriptOrder.js"></script>
   </body>
 </html>
