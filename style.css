@@ -1,21 +1,33 @@
-.index_col {
+a {
+    text-decoration: none;
+    text-emphasis: none;
+    color: black;
+}
+
+.box {
     border: solid 1px darkgray;
-    max-width: 20vw;
-    margin-right: 2vw;
-    margin-top: 2vw;
-    max-height: 24rem;
+    width: 20vw;
+    height: 25vw;
     text-align: center;
     text-decoration: none;
     align-items: center;
 }
 
-.index_col:hover {
+.box:hover {
     border: solid 1.5px darkgrey;
 }
 
-.index_col:visited {
-    text-emphasis: none;
-    color: black;
+.index #product_id {
+    visibility: hidden;
+}
+
+.index #product_description {
+    visibility: hidden;
+}
+
+.index #container {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
 }
 
 .index_title {
@@ -59,7 +71,6 @@
 }
 
 .index_footer {
-    margin-top: 50px;
     text-align: center;
 }
 
