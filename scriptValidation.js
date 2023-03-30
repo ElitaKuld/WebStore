@@ -1,21 +1,14 @@
-const error = document.querySelector('#error');
-const form = document.querySelector('#form');
-const firstName = document.querySelector('#firstName');
-const lastName = document.querySelector('#lastname');
-const email = document.querySelector('#email');
-const adress = document.querySelector('#address')
-const city = document.querySelector('#city')
-const phoneNumber = document.querySelector('#phoneNumber')
-const zipCode = document.querySelector('#zip-code')
-const cardNumber = document.querySelector('#cc-number')
-const expiration = document.querySelector('#expire-date')
-const cvv = document.querySelector('#cvvNumber')
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    checkInputs();
-    console.log("Success")
-})
+let form = document.querySelector('#form');
+let firstName = document.querySelector('#firstName');
+let lastName = document.querySelector('#lastName');
+let email = document.querySelector('#email');
+let phoneNumber = document.querySelector('#phoneNumber')
+let adress = document.querySelector('#adress')
+let city = document.querySelector('#city')
+let zipCode = document.querySelector('#zipCode')
+let cardNumber = document.querySelector('#cc-number')
+let expireDate = document.querySelector('#expireDate')
+let cvvNumber = document.querySelector('#cvvNumber')
 
 const checkInputs = () => {
 
@@ -81,20 +74,12 @@ const checkInputs = () => {
 
 
     const zipCodeValue = zipCode.value.trim()
-    let isValidZip = /(^[0-9]{3}\s?[0-9]{2}$)/.test("12345");
-    if (isValidZip === false) {
-        setError(zipCode)
-    } else {
-        setSuccess(zipCode)
-    }
-
-   /* const zipCodeValue = zipCode.value.trim()
     console.log(zipCodeValue)
-    if (zipCodeValue.length == 5) {
+    if (zipCodeValue.length == 6) {
         setSuccess(zipCode)
     } else {
         setError(zipCode)
-    }*/
+    }
 
 
     const cardNumberValue = cardNumber.value.trim()
@@ -114,6 +99,15 @@ const checkInputs = () => {
     } else {
         setSuccess(expiration)
     }
+
+    const cvvNumberValue = cvv.value.trim()
+    console.log(cvvNumber)
+
+    if (cvvNumberValue === '') {
+        setError(cvvNumber)
+    } else {
+        setSuccess(cvvNumber)
+    }
 }
 
 const setError = (input) => {
@@ -123,7 +117,38 @@ const setError = (input) => {
     small.style.display = "block"
 
 }
+
 const setSuccess = (input) => {
     const formControl = input.parentElement
     formControl.className = 'form-control success'
 }
+
+
+const customerInformation = [];
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    checkInputs();
+    console.log("Success")
+
+    const AddCustomerInformation = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        adress: document.getElementById('adress').value,
+        city: document.getElementById('city').value,
+        phoneNumber: document.getElementById('phoneNumber').value,
+        zipCode: document.getElementById('zipCode').value,
+        cardNumber: document.getElementById('cardNumber').value,
+        expiration: document.getElementById('expireDate').value,
+        cvvNumber: document.getElementById('cvvNumber').value
+    }
+    customerInformation.push(AddCustomerInformation)
+    document.forms[0].reset();
+
+    console.warn('added', {customerInformation});
+    let pre = document.querySelector('#form');
+    form.textContent = JSON.stringify(customerInformation, 10);
+})
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btn').addEventListener('click', addEventListener)
+})
