@@ -41,7 +41,7 @@ function renderAPI(json) {
     }
 
     console.log(product);
-    document.getElementById("image-order").innerHTML = "<a target='_blank' href=" + product.image + "><img class='img-fluid' src=" + product.image + " alt='Demo image' title='Öppna högupplöst bild'/></a>";
+    document.getElementById("image-order").innerHTML = "<a target='_blank' href=" + product.image + "><img class='img-fluid' src=" + product.image + " alt='Demo-image' title='Öppna högupplöst bild'/></a>";
     document.getElementById("product-name").innerHTML = product.title;
     document.getElementById("price").innerHTML = product.price + " USD";
     document.getElementById("intro").innerHTML = product.description;
