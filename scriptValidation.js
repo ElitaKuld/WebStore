@@ -1,4 +1,3 @@
-
 const error = document.querySelector('#error');
 const form = document.querySelector('#form');
 const firstName = document.querySelector('#firstName');
@@ -42,26 +41,30 @@ const checkInputs = () => {
 
     const emailValue = email.value.trim()
     console.log(emailValue)
-    if (emailValue.includes('@')){
+    if (emailValue.includes('@')) {
         setSuccess(email)
-    }else {
+    } else {
         console.log(email)
-        setError(email, )
+        setError(email)
     }
 
 
     const phoneNumberValue = phoneNumber.value.trim()
     console.log(phoneNumberValue)
-    if (phoneNumberValue.includes('0123456789') && phoneNumberValue.includes('-') && phoneNumberValue.includes('()')){
+    if (phoneNumberValue.includes('0123456789')) {
         setSuccess(phoneNumber)
-    }else {
-        setError(phoneNumber)
+        if (phoneNumberValue.includes('-') || phoneNumberValue.includes('()')) {
+            setSuccess(phoneNumber)
+        }
+        if (phoneNumberValue.isNull() || phoneNumberValue.length == 0) {
+            setError(phoneNumber)
+        }
     }
 
 
     const adressValue = adress.value.trim()
     console.log(adressValue)
-    if (adressValue.length >= 4 && adressValue.length <= 50){
+    if (adressValue.length >= 4 && adressValue.length <= 50) {
         setSuccess(adress)
     } else {
         setError(adress)
@@ -73,23 +76,31 @@ const checkInputs = () => {
     if (cityValue.length >= 2 && cityValue.length <= 50) {
         setSuccess(city)
     } else {
-        setError(city, 'Your city name should be min 2 letter and max 50 letter')
+        setError(city)
     }
 
 
     const zipCodeValue = zipCode.value.trim()
+    let isValidZip = /(^[0-9]{3}\s?[0-9]{2}$)/.test("12345");
+    if (isValidZip === false) {
+        setError(zipCode)
+    } else {
+        setSuccess(zipCode)
+    }
+
+   /* const zipCodeValue = zipCode.value.trim()
     console.log(zipCodeValue)
-    if (zipCodeValue.length == 5){
+    if (zipCodeValue.length == 5) {
         setSuccess(zipCode)
     } else {
         setError(zipCode)
-    }
+    }*/
 
 
     const cardNumberValue = cardNumber.value.trim()
     console.log(cardNumberValue)
     if (cardNumberValue === '') {
-        setError(cardNumber, 'Please enter your card number')
+        setError(cardNumber)
     } else {
         setSuccess(cardNumber)
     }
@@ -99,7 +110,7 @@ const checkInputs = () => {
     console.log(expiration)
 
     if (expirationValue === '') {
-        setError(expiration, 'Please enter card expiration date')
+        setError(expiration)
     } else {
         setSuccess(expiration)
     }
@@ -109,7 +120,7 @@ const setError = (input) => {
     const formControl = input.parentElement
     console.log(formControl)
     const small = formControl.querySelector('small')
-    small.style.display="block"
+    small.style.display = "block"
 
 }
 const setSuccess = (input) => {

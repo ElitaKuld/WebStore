@@ -6,116 +6,127 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
 </head>
+
 <body id="checkout">
-<div class="col">
-    <img class="shipping" src="images/shipping.png" alt="shipping icon">
-</div>
 <br>
 <div class="container">
-    <header class="text-center" id="header">STORE NAME</header>
-    <hr>
-    <h4>Please fill in your information</h4>
+    <div id="header"></div>
 </div>
 
-    <form id="form" >
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 md-3">
-                    <label for="firstName">First name</label>
-                    <input type="text" class="form-control"  id="firstName" placeholder=" name" value="" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
-                </div>
-                <div class="col-md-6 md-3">
-                    <label for="lastname">Last name</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="Last name" value="" required>
-                    <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50 letter</small>
-                </div>
+<form id="form" novalidate>
+    <div class="container">
+    <h4>Please fill in your information</h4>
+        <br>
+        <div class="row">
+            <div class="col-md-6 md-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder=" name" value="" required>
+                <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50
+                    letter</small>
+            </div>
+            <div class="col-md-6 md-3">
+                <label for="lastname">Last name</label>
+                <input type="text" class="form-control" id="lastname" placeholder="Last name" value="" required>
+                <small style="display: none; color: #ea241e">Your first name should be min 2 letter and max 50
+                    letter</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 md-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="yourName@example.com" required>
+                <small style="display: none; color: #ea241e">Your email should include @ and be max 50 letter</small>
+            </div>
+            <div class="col-md-6 md-3">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" class="form-control" placeholder="(46)72-123 12 12" required>
+                <small style="display: none; color: #ea241e">Your phone number should only contain numbers, - and ()</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 md-3">
+                <label for="adress">Adress</label>
+                <input type="text" id="adress" class="form-control" placeholder="Adress" required>
+                <small style="display: none; color: #ea241e">Your address should be min 4 letter and max 50
+                    letter</small>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 md-3">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" class="form-control" placeholder="yourName@example.com" required>
-                    <small style="display: none; color: #ea241e">Your email should include @ and be max 50 letter</small>
-                </div>
-                <div class="col-md-6 md-3">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="text" id="phoneNumber" class="form-control" placeholder="(46)72-123 12 12" required>
-                    <small style="display: none; color: #ea241e">Your phone number should only contain numbers, - and ()</small>
-                </div>
+            <div class="col-md-3 md-2">
+                <label for="zip">Zip-Code</label>
+                <input type="text" id="zip" class="form-control" pattern= ^[0-9]{3}\s?[0-9]{2}$ placeholder="Zip-Code" required>
+                <small style="display: none; color: #ea241e">enter zipcode by 6 sign with format 000 00</small>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 md-3">
-                    <label for="adress">Adress</label>
-                    <input type="text" id="adress" class="form-control" placeholder="Adress" required>
-                    <small style="display: none; color: #ea241e">Your address should be min 4 letter and max 50 letter</small>
-                </div>
+            <div class="col-md-3 md-2">
+                <label for="city">City</label>
+                <input type="text" id="city" class="form-control" placeholder="City" required>
+                <small style="display: none; color: #ea241e">Your city name should be min 2 letter and max 50
+                    letter</small>
+            </div>
+        </div>
 
-                <div class="col-md-3 md-2">
-                    <label for="zip">Zip-Code</label>
-                    <input type="text" id="zip" class="form-control" placeholder="Zip-Code" required>
-                    <small style="display: none; color: #ea241e">enter zipcode by 6 sign with format 000 00</small>
-                </div>
 
-                <div class="col-md-3 md-2">
-                    <label for="city">City</label>
-                    <input type="text" id="city" class="form-control" placeholder="City" required>
-                    <small style="display: none; color: #ea241e">Your city name should be min 2 letter and max 50 letter</small>
-                </div>
+        <div class="row">
+            <h4>Payment by:</h4>
+            <div class="custom-control custom-radio">
+                <input type="radio" name="paymentMethod" id="klarna" class="custom-control-input" checked required>
+                <label for="klarna" class="custom-control-label">klarna</label>
             </div>
 
-
-            <div class="row">
-                <h4>Payment by:</h4>
-                <div class="custom-control custom-radio">
-                    <input type="radio" name="paymentMethod" id="klarna" class="custom-control-input" checked required>
-                    <label for="klarna" class="custom-control-label">klarna</label>
-                </div>
-
-                <div class="custom-control custom-radio">
-                    <input type="radio" name="paymentMethod" id="master-card" class="custom-control-input" checked
-                           required>
-                    <label for="master-card" class="custom-control-label">Master card</label>
-                </div>
-
-                <div class="custom-control custom-radio">
-                    <input type="radio" name="paymentMethod" id="visa-card" class="custom-control-input" checked
-                           required>
-                    <label for="visa-card" class="custom-control">Visa card</label>
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="col-md-6 md-3">
-                    <label for="cc-number">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                    <small></small>
-                </div>
-                <div class="col-md-3 md-2">
-                    <label for="expire-date">Expire date</label>
-                    <input type="month" class="form-control" id="expire-date">
-                    <small></small>
-                </div>
-                <div class="col-md-3 md-2">
-                    <label for="cvvNumber">CVV</label>
-                    <input type="text" class="form-control" id="cvvNumber">
-                    <small></small>
-                </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" name="paymentMethod" id="master-card" class="custom-control-input" checked
+                       required>
+                <label for="master-card" class="custom-control-label">Master card</label>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <div class="submit">
-                        <button type="submit" class="btn btn-secondary">Submit</button>
-                    </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" name="paymentMethod" id="visa-card" class="custom-control-input" checked
+                       required>
+                <label for="visa-card" class="custom-control">Visa card</label>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-6 md-3">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <small></small>
+            </div>
+            <div class="col-md-3 md-2">
+                <label for="expire-date">Expire date</label>
+                <input type="month" class="form-control" id="expire-date">
+                <small></small>
+            </div>
+            <div class="col-md-3 md-2">
+                <label for="cvvNumber">CVV</label>
+                <input type="text" class="form-control" id="cvvNumber">
+                <small></small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="submit">
+                    <button type="submit" class="btn btn-secondary">Submit</button>
                 </div>
             </div>
         </div>
-    </form>
-
+        <div id="footer"></div>
+    </div>
+</form>
 <script src="scriptValidation.js"></script>
 </body>
 </html>
