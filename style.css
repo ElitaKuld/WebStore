@@ -1,4 +1,10 @@
-a {
+#login a {
+    text-decoration: none;
+    text-emphasis: none;
+    color: black;
+}
+
+#checkout a {
     text-decoration: none;
     text-emphasis: none;
     color: black;
