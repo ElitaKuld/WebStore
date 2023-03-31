@@ -29,6 +29,7 @@ const addCustomer = (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn').addEventListener('click', addCustomer)
 });
+localStorage.setItem('custumer: ', JSON.stringify(AddCustomerInformation));
 
 localStorage.setItem("Obj", JSON.stringify())
 
@@ -98,3 +99,5 @@ submitButton.addEventListener('submit', () => {
     console.log("Success")
     window.open('confirmation.html', '_self');
 });
+
+saveCustomerInfoToLocalStorage()

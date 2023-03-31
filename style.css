@@ -202,14 +202,6 @@ body {
     position: absolute;
 }
 
-#checkout .container {
-    position: static;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 800px;
-    max-width: 100%;
-}
-
 #login .container {
     position: static;
     padding-bottom: 20%;
@@ -218,14 +210,6 @@ body {
     width: 800px;
     max-width: 100%;
     padding-left: 10%;
-}
-
-.form-control {
-    display: inline-block;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    color: #000000;
-    box-sizing: border-box;
 }
 
 
@@ -259,4 +243,24 @@ h2 {
 
 #login-pic{
     width: 80px;
+}
+
+.form-control, ::after, ::before {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    color: #000000;
+    position: static;
+    overflow: hidden;
+    alignment: center;
+
+}
+
+#checkout .container {
+    position: static;
+    overflow: visible;
+    border-radius: 5px;
+    width: 50rem;
+    color: #000000;
 }

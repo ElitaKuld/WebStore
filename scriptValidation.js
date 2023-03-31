@@ -1,12 +1,4 @@
 
-const submitButton = document.getElementById("submit");
-
-submitButton.addEventListener('click', () => {
-    console.log("Success")
-    checkInputs();
-    window.open('confirmation.html', '_self');
-});
-
 let form = document.querySelector('#form');
 let firstName = document.querySelector('#firstName');
 let lastName = document.querySelector('#lastName');
@@ -19,11 +11,7 @@ let cardNumber = document.querySelector('#cc-number');
 let expireDate = document.querySelector('#expireDate');
 let cvvNumber = document.querySelector('#cvvNumber');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    checkInputs();
-    console.log("Success")
-})
+
 
 const setError = (input) => {
     const formControl = input.parentElement
@@ -119,7 +107,7 @@ const checkInputs = () => {
         setSuccess(cardNumber)
     }
 
-    const expirationValue = expiration.value.trim()
+    const expirationValue = expireDate.value.trim()
     console.log(expiration)
 
     if (expirationValue === '') {
@@ -128,7 +116,7 @@ const checkInputs = () => {
         setSuccess(expiration)
     }
 
-    const cvvNumberValue = cvv.value.trim()
+    const cvvNumberValue = cvvNumber.value.trim()
     console.log(cvvNumber)
 
     if (cvvNumberValue === '') {
@@ -137,9 +125,8 @@ const checkInputs = () => {
         setSuccess(cvvNumber)
     }
 }
-
-
-submitButton.addEventListener('submit', () => {
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    checkInputs();
     console.log("Success")
-    window.open('confirmation.html', '_self');
-});
+})
