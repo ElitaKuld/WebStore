@@ -10,6 +10,12 @@
     color: black;
 }
 
+.index a {
+    text-decoration: none;
+    text-emphasis: none;
+    color: black;
+}
+
 .box {
     border: solid 1px darkgray;
     width: 20vw;
@@ -118,7 +124,7 @@ footer {
     text-decoration: none;
 }
 
-.confirmation a{
+.confirmation a {
     text-decoration: none;
 }
 
@@ -162,21 +168,21 @@ footer {
     margin-bottom: 75px;
 }
 
-.order #logo-card{
+.order #logo-card {
     width: 65px;
 }
 
-.order #logo-envelope{
+.order #logo-envelope {
     width: 50px;
     margin-left: 10px;
     margin-right: 3px;
 }
 
-.order a{
+.order a {
     text-decoration: none;
 }
 
-.order button{
+.order button {
     font-weight: bold;
 }
 
@@ -197,7 +203,7 @@ body {
     align-items: center;
     margin-top: 50px;
     margin-bottom: 75px;
-    font-size:18px
+    font-size: 18px
 }
 
 .shipping {
@@ -219,7 +225,10 @@ body {
 }
 
 
-input[type="password"], [type="month"], [type="email"], [type="text"] {
+input[type="password"],
+[type="month"],
+[type="email"],
+[type="text"] {
     overflow: visible;
     background-color: #defcde;
     border-color: #b8b8b8;
@@ -247,11 +256,13 @@ h2 {
     padding-left: 5%;
 }
 
-#login-pic{
+#login-pic {
     width: 80px;
 }
 
-.form-control, ::after, ::before {
+.form-control,
+::after,
+::before {
     box-sizing: border-box;
     display: inline-block;
     margin-bottom: 10px;
