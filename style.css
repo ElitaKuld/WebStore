@@ -10,12 +10,6 @@
     color: black;
 }
 
-.index a {
-    text-decoration: none;
-    text-emphasis: none;
-    color: black;
-}
-
 .box {
     border: solid 1px darkgray;
     width: 20vw;
@@ -27,6 +21,7 @@
 
 .box:hover {
     border: solid 1.5px darkgrey;
+    cursor: pointer;
 }
 
 .index #product_id {
@@ -196,7 +191,29 @@ body {
     background-color: #ffffff;
 }
 
-.btn {
+
+/* 
+.btn {                           Separerat style för knapparna på olika sidor
+    display: flex;
+    background-color: #838383;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    font-size: 18px
+}*/
+
+#login .btn {                         
+    display: flex;
+    background-color: #838383;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    font-size: 18px
+}
+
+#checkout .btn {                         
     display: flex;
     background-color: #838383;
     justify-content: center;
