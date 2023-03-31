@@ -1,14 +1,43 @@
+
+const submitButton = document.getElementById("submit");
+
+submitButton.addEventListener('click', () => {
+    console.log("Success")
+    checkInputs();
+    window.open('confirmation.html', '_self');
+});
+
 let form = document.querySelector('#form');
 let firstName = document.querySelector('#firstName');
 let lastName = document.querySelector('#lastName');
 let email = document.querySelector('#email');
-let phoneNumber = document.querySelector('#phoneNumber')
-let adress = document.querySelector('#adress')
-let city = document.querySelector('#city')
-let zipCode = document.querySelector('#zipCode')
-let cardNumber = document.querySelector('#cc-number')
-let expireDate = document.querySelector('#expireDate')
-let cvvNumber = document.querySelector('#cvvNumber')
+let phoneNumber = document.querySelector('#phoneNumber');
+let adress = document.querySelector('#adress');
+let city = document.querySelector('#city');
+let zipCode = document.querySelector('#zipCode');
+let cardNumber = document.querySelector('#cc-number');
+let expireDate = document.querySelector('#expireDate');
+let cvvNumber = document.querySelector('#cvvNumber');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    checkInputs();
+    console.log("Success")
+})
+
+const setError = (input) => {
+    const formControl = input.parentElement
+    console.log(formControl)
+    const small = formControl.querySelector('small')
+    small.style.display = "block"
+
+}
+const setSuccess = (input) => {
+    const formControl = input.parentElement
+    formControl.className = 'form-control'
+    console.log('success')
+}
+
 
 const checkInputs = () => {
 
@@ -20,7 +49,6 @@ const checkInputs = () => {
         console.log(firstName)
         setError(firstName)
     }
-
 
     const lastNameValue = lastName.value.trim()
     console.log(lastNameValue)
@@ -34,7 +62,7 @@ const checkInputs = () => {
 
     const emailValue = email.value.trim()
     console.log(emailValue)
-    if (emailValue.includes('@')) {
+    if (emailValue.includes('@') && emailValue.length <= 50) {
         setSuccess(email)
     } else {
         console.log(email)
@@ -52,6 +80,9 @@ const checkInputs = () => {
         if (phoneNumberValue.isNull() || phoneNumberValue.length == 0) {
             setError(phoneNumber)
         }
+        if (phoneNumberValue.includes('!"#¤%&/=?@£$€')){
+            setError(phoneNumber)
+        }
     }
 
 
@@ -62,7 +93,6 @@ const checkInputs = () => {
     } else {
         setError(adress)
     }
-
 
     const cityValue = city.value.trim()
     console.log(cityValue)
@@ -81,7 +111,6 @@ const checkInputs = () => {
         setError(zipCode)
     }
 
-
     const cardNumberValue = cardNumber.value.trim()
     console.log(cardNumberValue)
     if (cardNumberValue === '') {
@@ -89,7 +118,6 @@ const checkInputs = () => {
     } else {
         setSuccess(cardNumber)
     }
-
 
     const expirationValue = expiration.value.trim()
     console.log(expiration)
@@ -110,45 +138,8 @@ const checkInputs = () => {
     }
 }
 
-const setError = (input) => {
-    const formControl = input.parentElement
-    console.log(formControl)
-    const small = formControl.querySelector('small')
-    small.style.display = "block"
 
-}
-
-const setSuccess = (input) => {
-    const formControl = input.parentElement
-    formControl.className = 'form-control success'
-}
-
-
-const customerInformation = [];
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    checkInputs();
+submitButton.addEventListener('submit', () => {
     console.log("Success")
-
-    const AddCustomerInformation = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        adress: document.getElementById('adress').value,
-        city: document.getElementById('city').value,
-        phoneNumber: document.getElementById('phoneNumber').value,
-        zipCode: document.getElementById('zipCode').value,
-        cardNumber: document.getElementById('cardNumber').value,
-        expiration: document.getElementById('expireDate').value,
-        cvvNumber: document.getElementById('cvvNumber').value
-    }
-    customerInformation.push(AddCustomerInformation)
-    document.forms[0].reset();
-
-    console.warn('added', {customerInformation});
-    let pre = document.querySelector('#form');
-    form.textContent = JSON.stringify(customerInformation, 10);
-})
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('btn').addEventListener('click', addEventListener)
-})
+    window.open('confirmation.html', '_self');
+});

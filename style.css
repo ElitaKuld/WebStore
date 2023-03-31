@@ -47,8 +47,7 @@
 }
 
 header {
-    color: cornflowerblue;
-    font-size-adjust: 50;
+    color: #8062ad;
     margin-top: 20px;
     font-size: 50px;
 }
@@ -167,11 +166,20 @@ footer {
     margin-top: 50px;
 }
 
+body {
+    font-family: "Calibri";
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
 .btn {
-    color: #ffffff;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    alignment: center;
+    display: flex;
+    background-color: #838383;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    font-size:18px
 }
 
 .shipping {
@@ -184,7 +192,6 @@ footer {
 
 #checkout .container {
     position: static;
-    /*padding-bottom: 20%;*/
     border-radius: 5px;
     overflow: hidden;
     width: 800px;
@@ -206,6 +213,7 @@ footer {
     margin-bottom: 10px;
     padding-bottom: 5px;
     color: #000000;
+    box-sizing: border-box;
 }
 
 
@@ -217,11 +225,6 @@ input[type="password"], [type="month"], [type="email"], [type="text"] {
     margin-bottom: 10%;
 }
 
-body {
-    font-family: "Calibri light";
-    box-sizing: border-box;
-    background-color: #ffffff;
-}
 
 h2 {
     alignment: center;

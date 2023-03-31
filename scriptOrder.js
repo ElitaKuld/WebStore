@@ -7,9 +7,9 @@ orderButton.addEventListener('click', () => {
     window.open('checkoutForm.html', '_self');
 });
 
-
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------
+// ---------------------------------------------------------
+// ---------------------------------------------------------
 
 //funktion för att testa att fylla i information om en beställd produkt
 function loadAPI() {
@@ -52,8 +52,9 @@ function renderAPI(json) {
 
 loadAPI();
 
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+// --------------------------------------------------------
+// --------------------------------------------------------
 //Spara produkten i localStorage
 function saveProductToLocalStorage(product) {
     let myProduct = {
@@ -65,5 +66,4 @@ function saveProductToLocalStorage(product) {
     console.log(myProduct);
 
     localStorage.setItem("myProduct", JSON.stringify(myProduct));
-
 }
