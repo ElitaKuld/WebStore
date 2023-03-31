@@ -99,5 +99,3 @@ submitButton.addEventListener('submit', () => {
     console.log("Success")
     window.open('confirmation.html', '_self');
 });
-
-saveCustomerInfoToLocalStorage()
