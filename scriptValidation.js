@@ -11,12 +11,25 @@ let expireDate = document.querySelector('#expireDate');
 let CVV = document.querySelector('#CVV');
 let resultOfCheck = true;
 
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    checkInputs();
+    if (checkInputs(setSuccess())) {
+        const orderButton = document.getElementById("submit");
+
+        orderButton.addEventListener('submit', () => {
+            window.open('confirmation.html', '_self');
+        });
+    }
+})
+
 const setError = (input) => {
     const formControl = input.parentElement
     console.log(formControl)
     const small = formControl.querySelector('small')
     small.style.display = "block"
-    resultOfCheck = false
+
 }
 const setSuccess = (input) => {
     const formControl = input.parentElement
@@ -142,7 +155,7 @@ function saveDataToLocalStorage(firstName, lastName, email, phoneNumber, adress,
             }
         localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
         alert("Everything is correct " + resultOfCheck)
-        window.open('confirmation.html', '_self');
+        window.open('confirmation.html');
 
     }
 
