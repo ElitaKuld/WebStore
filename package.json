@@ -4,6 +4,6 @@
     "redis": "4.6.5"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index1.js"
   }
 }
