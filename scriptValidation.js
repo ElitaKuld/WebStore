@@ -9,14 +9,14 @@ let zipCode = document.querySelector('#zipCode');
 let cardNumber = document.querySelector('#cardNumber');
 let expireDate = document.querySelector('#expireDate');
 let CVV = document.querySelector('#CVV');
-
+let resultOfCheck = true;
 
 const setError = (input) => {
     const formControl = input.parentElement
     console.log(formControl)
     const small = formControl.querySelector('small')
     small.style.display = "block"
-
+    resultOfCheck = false
 }
 const setSuccess = (input) => {
     const formControl = input.parentElement
@@ -124,22 +124,26 @@ const checkInputs = () => {
     }
 }
 
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+function saveDataToLocalStorage(firstName, lastName, email, phoneNumber, adress, zipCode, city, cartNumber, expireDate, CVV) {
     checkInputs();
-})
+    if (resultOfCheck) {
+        let customerInfo =
+            {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNumber: phoneNumber,
+                adress: adress,
+                zipCode: zipCode,
+                city: city,
+                cartNumber: cartNumber,
+                expireDate: expireDate,
+                CVV: CVV
+            }
+        localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
+        alert("Everything is correct " + resultOfCheck)
+        window.open('confirmation.html', '_self');
 
-function saveDataToLocalStorage(firstName, lastName, phoneNumber, email, adress, zipCode, city, cartNumber, CVV ) {
-    let customerInfo =
-        {firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phoneNumber: phoneNumber,
-        adress: adress,
-        zipCode: zipCode,
-        city: city,
-        cartNumber: cartNumber,
-        CVV: CVV}
-    localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
+    }
+
 }
