@@ -143,3 +143,31 @@ body{
  .cart #check-cell{
     background: none;
 }
+
+.cart #col-slut{
+    margin-bottom: 25px;
+}
+
+.cart #frivilligt{
+    color: gray;
+}
+
+.cart #message{
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-bottom: 25px;
+    margin-left: 100px;
+}
+
+.cart #uppgifter{
+    margin-bottom: 25px;
+}
+
+.cart #uppgifter{
+    font-weight: bold;
+}
+
+.cart #card-holder{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /*, 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
+    border-radius: 6px;
+}
