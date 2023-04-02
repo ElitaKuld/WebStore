@@ -4,9 +4,9 @@ function loadAPI() {
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.response); // OBS! En sträng
+            //    console.log(xhr.response);
             const json = JSON.parse(xhr.response);
-            console.log(json);
+            //    console.log(json);
             renderAPI(json);
         }
     };
@@ -15,30 +15,26 @@ function loadAPI() {
 function renderAPI(json) {
     let products = "";
     json.forEach((product) => {
-        products += "<div class='col'><div class='box' id = 'box'><a href='order.html'><p class='index_title' id = 'product_title'>" + product.title + "</p><div class='index_image_container'><img src=" + product.image + " class='index_images' id = 'product_image'></div><p class='index_price' id = 'product_price'>Price: " + product.price + "USD</p> <div id = 'product_id'>" + product.id + "</div><div id = 'product_description'>" + product.description + "</div></a></div></div>";
+        products += "<div class='col-4'><div class='box' id='box'><p class='index_title' id='product_title'>" + product.title + "</p><div class='index_image_container'><img src=" + product.image + " class='index_images' id='product_image'></div><p class='index_price' id='product_price'>Price: " + product.price + "USD</p><div id='product_id'>" + product.id + "</div><div id='product_description'>" + product.description + "</div></div></div>";
     });
     document.getElementById("products").innerHTML = products;
+    addActionListener(); // adds Event Listener to every "box" element
+}
+
+function addActionListener() {
+    const items = document.querySelectorAll(".box");
+    //    items.forEach((item) => console.log(item)); // kontroll
+    items.forEach((item) => item.addEventListener('click', () => {
+        saveProductIdToLocalStorage(item);
+        window.open('order.html', '_self');
+    })
+    );
 }
 
 loadAPI();
 
-document.onload = function(){
-    const box = document.getElementById("box");
-    saveProductToLocalStorage(box);
-};
-
-
-
-function saveProductToLocalStorage() {
-    let myProduct = {
-        id: document.getElementById("product_id").innerText,
-        title: document.getElementById("product_title").innerText,
-        image: document.getElementById("product_image").innerText,
-        price: document.getElementById("product_price").innerText,
-        price: document.getElementById("product_description").innerText,
-    };
-    console.log(myProduct);
-
-    localStorage.setItem("myProduct", JSON.stringify(myProduct));
-
+function saveProductIdToLocalStorage(item) {
+    let productId = item.querySelector("#product_id").textContent; // find out the id number inside the clicked "box" element
+    console.log(productId); // kontroll
+    localStorage.setItem("productId", JSON.stringify(productId));
 }

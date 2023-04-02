@@ -1,21 +1,29 @@
-const error = document.querySelector('#error');
-const form = document.querySelector('#form');
-const firstName = document.querySelector('#firstName');
-const lastName = document.querySelector('#lastname');
-const email = document.querySelector('#email');
-const adress = document.querySelector('#address')
-const city = document.querySelector('#city')
-const phoneNumber = document.querySelector('#phoneNumber')
-const zipCode = document.querySelector('#zip-code')
-const cardNumber = document.querySelector('#cc-number')
-const expiration = document.querySelector('#expire-date')
-const cvv = document.querySelector('#cvvNumber')
+let form = document.querySelector('#form');
+let firstName = document.querySelector('#firstName');
+let lastName = document.querySelector('#lastName');
+let email = document.querySelector('#email');
+let phoneNumber = document.querySelector('#phoneNumber');
+let adress = document.querySelector('#adress');
+let city = document.querySelector('#city');
+let zipCode = document.querySelector('#zipCode');
+let cardNumber = document.querySelector('#cardNumber');
+let expireDate = document.querySelector('#expireDate');
+let CVV = document.querySelector('#CVV');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    checkInputs();
-    console.log("Success")
-})
+
+const setError = (input) => {
+    const formControl = input.parentElement
+    console.log(formControl)
+    const small = formControl.querySelector('small')
+    small.style.display = "block"
+
+}
+const setSuccess = (input) => {
+    const formControl = input.parentElement
+    formControl.className = 'form-control'
+    console.log('success')
+}
+
 
 const checkInputs = () => {
 
@@ -27,7 +35,6 @@ const checkInputs = () => {
         console.log(firstName)
         setError(firstName)
     }
-
 
     const lastNameValue = lastName.value.trim()
     console.log(lastNameValue)
@@ -41,7 +48,7 @@ const checkInputs = () => {
 
     const emailValue = email.value.trim()
     console.log(emailValue)
-    if (emailValue.includes('@')) {
+    if (emailValue.includes('@') && emailValue.length <= 50) {
         setSuccess(email)
     } else {
         console.log(email)
@@ -59,6 +66,9 @@ const checkInputs = () => {
         if (phoneNumberValue.isNull() || phoneNumberValue.length == 0) {
             setError(phoneNumber)
         }
+        if (phoneNumberValue.includes('!"#¤%&/=?@£$€')) {
+            setError(phoneNumber)
+        }
     }
 
 
@@ -70,7 +80,6 @@ const checkInputs = () => {
         setError(adress)
     }
 
-
     const cityValue = city.value.trim()
     console.log(cityValue)
     if (cityValue.length >= 2 && cityValue.length <= 50) {
@@ -81,21 +90,12 @@ const checkInputs = () => {
 
 
     const zipCodeValue = zipCode.value.trim()
-    let isValidZip = /(^[0-9]{3}\s?[0-9]{2}$)/.test("12345");
-    if (isValidZip === false) {
-        setError(zipCode)
-    } else {
-        setSuccess(zipCode)
-    }
-
-   /* const zipCodeValue = zipCode.value.trim()
     console.log(zipCodeValue)
-    if (zipCodeValue.length == 5) {
+    if (zipCodeValue.length == 6) {
         setSuccess(zipCode)
     } else {
         setError(zipCode)
-    }*/
-
+    }
 
     const cardNumberValue = cardNumber.value.trim()
     console.log(cardNumberValue)
@@ -105,25 +105,41 @@ const checkInputs = () => {
         setSuccess(cardNumber)
     }
 
-
-    const expirationValue = expiration.value.trim()
-    console.log(expiration)
+    const expirationValue = expireDate.value.trim()
+    console.log(expirationValue)
 
     if (expirationValue === '') {
-        setError(expiration)
+        setError(expireDate)
     } else {
-        setSuccess(expiration)
+        setSuccess(expireDate)
+    }
+
+    const CVVValue = CVV.value.trim()
+    console.log(CVVValue)
+
+    if (CVVValue === '') {
+        setError(CVV)
+    } else {
+        setSuccess(CVV)
     }
 }
 
-const setError = (input) => {
-    const formControl = input.parentElement
-    console.log(formControl)
-    const small = formControl.querySelector('small')
-    small.style.display = "block"
 
-}
-const setSuccess = (input) => {
-    const formControl = input.parentElement
-    formControl.className = 'form-control success'
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    checkInputs();
+})
+
+function saveDataToLocalStorage(firstName, lastName, phoneNumber, email, adress, zipCode, city, cartNumber, CVV ) {
+    let customerInfo =
+        {firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        adress: adress,
+        zipCode: zipCode,
+        city: city,
+        cartNumber: cartNumber,
+        CVV: CVV}
+    localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
 }
