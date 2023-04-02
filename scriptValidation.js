@@ -1,4 +1,3 @@
-
 let form = document.querySelector('#form');
 let firstName = document.querySelector('#firstName');
 let lastName = document.querySelector('#lastName');
@@ -7,10 +6,9 @@ let phoneNumber = document.querySelector('#phoneNumber');
 let adress = document.querySelector('#adress');
 let city = document.querySelector('#city');
 let zipCode = document.querySelector('#zipCode');
-let cardNumber = document.querySelector('#cc-number');
+let cardNumber = document.querySelector('#cardNumber');
 let expireDate = document.querySelector('#expireDate');
-let cvvNumber = document.querySelector('#cvvNumber');
-
+let CVV = document.querySelector('#CVV');
 
 
 const setError = (input) => {
@@ -68,7 +66,7 @@ const checkInputs = () => {
         if (phoneNumberValue.isNull() || phoneNumberValue.length == 0) {
             setError(phoneNumber)
         }
-        if (phoneNumberValue.includes('!"#¤%&/=?@£$€')){
+        if (phoneNumberValue.includes('!"#¤%&/=?@£$€')) {
             setError(phoneNumber)
         }
     }
@@ -108,25 +106,40 @@ const checkInputs = () => {
     }
 
     const expirationValue = expireDate.value.trim()
-    console.log(expiration)
+    console.log(expirationValue)
 
     if (expirationValue === '') {
-        setError(expiration)
+        setError(expireDate)
     } else {
-        setSuccess(expiration)
+        setSuccess(expireDate)
     }
 
-    const cvvNumberValue = cvvNumber.value.trim()
-    console.log(cvvNumber)
+    const CVVValue = CVV.value.trim()
+    console.log(CVVValue)
 
-    if (cvvNumberValue === '') {
-        setError(cvvNumber)
+    if (CVVValue === '') {
+        setError(CVV)
     } else {
-        setSuccess(cvvNumber)
+        setSuccess(CVV)
     }
 }
+
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     checkInputs();
-    console.log("Success")
 })
+
+function saveDataToLocalStorage(firstName, lastName, phoneNumber, email, adress, zipCode, city, cartNumber, CVV ) {
+    let customerInfo =
+        {firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        adress: adress,
+        zipCode: zipCode,
+        city: city,
+        cartNumber: cartNumber,
+        CVV: CVV}
+    localStorage.setItem("customerInfo", JSON.stringify(customerInfo));
+}
