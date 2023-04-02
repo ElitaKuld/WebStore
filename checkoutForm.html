@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="container" id="checkout" >
+<body class="container" id="checkout">
 
 <br>
 <div class="container">
@@ -66,7 +66,8 @@
 
             <div class="col-md-3 md-2">
                 <label for="zipCode">Zip-Code</label>
-                <input type="text" id="zipCode" class="form-control" pattern=^[0-9]{3}\s?[0-9]{2}$ placeholder="Zip-Code" required>
+                <input type="text" id="zipCode" class="form-control" pattern=^[0-9]{3}\s?[0-9]{2}$
+                       placeholder="Zip-Code" required>
                 <small style="display: none; color: #ea241e">Enter zipcode by 6 sign with format 000 00</small>
             </div>
 
@@ -113,16 +114,28 @@
                 <small></small>
             </div>
             <div class="col-md-3 md-2">
-                <label for="cvvNumber">CVV</label>
-                <input type="text" class="form-control" id="cvvNumber">
+                <label for="CVV">CVV</label>
+                <input type="text" class="form-control" id="CVV">
                 <small></small>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
+
                 <div class="submit">
-                    <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-secondary"
+                            onclick="saveDataToLocalStorage
+                            (document.getElementById('firstName').value,
+                            document.getElementById('lastName').value,
+                            document.getElementById('email').value,
+                            document.getElementById('phoneNumber').value,
+                            document.getElementById('adress').value,
+                            document.getElementById('zipCode').value,
+                            document.getElementById('cardNumber').value,
+                            document.getElementById('expireDate').value,
+                            document.getElementById('CVV').value)">
+                        Submit</button>
                 </div>
             </div>
         </div>
@@ -130,8 +143,8 @@
     </div>
 </form>
 
-<script src="scriptValidation.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="scriptValidation.js"></script>
 
 </body>
 </html>
