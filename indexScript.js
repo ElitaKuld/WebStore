@@ -22,12 +22,12 @@ function renderAPI(json) {
 
 loadAPI();
 
-const box = document.getElementById("box");
+document.onload = function(){
+    const box = document.getElementById("box");
+    saveProductToLocalStorage(box);
+};
 
-box.addEventListener('click', () => {
-    console.log("Success")
-    window.open('order.html', '_self');
-});
+
 
 function saveProductToLocalStorage() {
     let myProduct = {
