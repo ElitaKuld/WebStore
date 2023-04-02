@@ -64,7 +64,7 @@ function getMoms(price) {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Getting from Bahareh's page HAS TO BE DONE
+/* TEST INFORMATION OCH METODER:
 const customer = {
     fullName: "Winnie the Pooh",
     email: "winnie@honey.com",
@@ -80,6 +80,16 @@ function showCustomerInfo(customer) {
         "</p><p>" + customer.zipCode + " " + customer.city + "</p>"
 }
 
-showCustomerInfo(customer);
+showCustomerInfo(customer);*/
+
+function getCustomerFromLocalStorage() {
+    let customer = JSON.parse(localStorage.getItem("customerInfo"));
+    console.log(customer);
+
+    document.getElementById("customer-info").innerHTML = "<div><h5 style='text-decoration: underline'>Kunduppgifter:</h5><p>E-postadress: <i>" + customer.email + "</i></p><p>Mobiltelefon: <i>" +
+        customer.phoneNumber + "</i></p><p>Kundtyp: <i>Privatperson</i></p></div><br><div><h5 style='text-decoration: underline'>Leveransadress:</h5><p><i>" + customer.firstName + " " + customer.lastName + "</i></p><p><i>" + customer.adress + "</i></p><p><i>" + customer.zipCode + " " + customer.city + "</i></p></div>"
+}
+
+getCustomerFromLocalStorage();
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
