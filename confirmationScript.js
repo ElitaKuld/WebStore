@@ -64,7 +64,7 @@ function getMoms(price) {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Getting from Bahareh's page
+// Getting from Bahareh's page HAS TO BE DONE
 const customer = {
     fullName: "Winnie the Pooh",
     email: "winnie@honey.com",
@@ -83,5 +83,3 @@ function showCustomerInfo(customer) {
 showCustomerInfo(customer);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
