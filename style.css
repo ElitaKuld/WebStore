@@ -119,11 +119,11 @@ footer {
     width: 200px;
 }
 
-.confirmation #social-media a {
-    text-decoration: none;
+.confirmation #footer {
+    margin-top: 50px;
 }
 
-.confirmation a {
+.confirmation a{
     text-decoration: none;
 }
 
@@ -257,6 +257,11 @@ input[type="password"],
     margin-bottom: 10%;
 }
 
+body {
+    font-family: "Calibri light";
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
 
 h2 {
     alignment: center;
