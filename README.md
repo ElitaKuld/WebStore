@@ -1,2 +1,2 @@
 # webbapplication
-Här ska vi jobba med en webbapplication för Frontend kurs med Bahareh, Victor och Elita.
+Grupprojekt i Frontend kurs med Bahareh Torki och Victor Cabrera + VG-uppgift "Varukorg"
