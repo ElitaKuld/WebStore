@@ -49,8 +49,16 @@ const setError = (element, message) => {
     small.style.display = "block";
 }
 
+const hideError = (element) => {
+    const formControl = element.parentElement;
+    const small = formControl.querySelector('small');
+    small.style.display = "none";
+}
+
 // Validate Form
 function validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV) {
+
+    let isValidated = true;
 
     if (!firstName || !lastName || !email || !phoneNumber || !address || !city || !zipCode || !cardNumber || !expireDate || !CVV) {
         alert('Please fill in the form');
@@ -69,25 +77,34 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     if (firstName.length < 2 || firstName.length > 50) {
         //alert('A name must be between 2 and 50 characters long');
         setError(document.querySelector('#firstName'), "A first name should be min 2 letters and max 50 letters long")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#firstName'))
     }
 
     if (lastName.length < 2 || lastName.length > 50) {
         //alert('A name must be between 2 and 50 characters long and only contain letters');
         setError(document.querySelector('#lastName'), "A last name should be min 2 letters and max 50 letters long")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#lastName'))
     }
 
     if (!email.includes('@')) {
         //alert('Your email should include "@". Please type in a valid e-mail');
-        setError(document.querySelector('#email'), "Your email should include '@'. Please type in a valid e-mail")
-        return false;
+        setError(document.querySelector('#email'), "Your email should include '@'.")
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#email'))
     }
 
     if (email.length > 50) {
         //alert('Your email should be max 50 characters long');
         setError(document.querySelector('#email'), "Your email should be max 50 characters long")
-        return false;
+        isValidated = false;
     }
 
     //regex telephoneNumber
@@ -98,19 +115,28 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     if (!phoneNumber.match(regexTN)) {
         //alert('Your phone number can only contain numbers, - and (). Please type in a valid phone number');
         setError(document.querySelector('#phoneNumber'), "Your phone number can only contain numbers, - and (). Please type in a valid phone number")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#phoneNumber'))
     }
 
     if (address.length < 4 || address.length > 50) {
         //alert('Your address should be min 4 letters and max 50 letters long');
         setError(document.querySelector('#address'), "Your address should be min 4 letters and max 50 letters long")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#address'))
     }
 
     if (city.length < 4 || city.length > 50) {
         //alert('The city name should be min 2 letters and max 50 letters long');
         setError(document.querySelector('#city'), "The city name should be min 2 letters and max 50 letters long")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#city'))
     }
 
     //regex zip-code
@@ -119,8 +145,11 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     if (!zipCode.match(regexPN) || zipCode.length < 6) {
         //alert('Enter zipcode by 6 sign with format 000 00');
         setError(document.querySelector('#zipCode'), "Enter zipcode by 6 sign with format 000 00")
-        return false;
+        isValidated = false;
+    }
+    else {
+        hideError(document.querySelector('#zipCode'))
     }
 
-    return true;
+    return isValidated;
 }
