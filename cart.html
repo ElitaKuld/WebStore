@@ -257,7 +257,7 @@
                         <div class="card-body">
                             <h5 id="uppgifter">Dina uppgifter</h5>
                             <div class="container">
-                                <form novalidate>
+                                <form id="form" novalidate>
                                     <div class="row">
                                         <div class="col-md-6 md-3">
                                             <label for="firstName">First name</label>
@@ -365,9 +365,9 @@
                                     <br>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="submit">
+                                            <div class="submit" id="button-submit">
                                                 <button type="submit" id="submit"
-                                                    class="btn btn-secondary">Submit</button>
+                                                    class="btn btn-success">SLUTFÖR DIN BESTÄLLNING</button>
                                             </div>
                                         </div>
                                     </div>
@@ -387,6 +387,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="cartScript.js"></script>
 </body>
 

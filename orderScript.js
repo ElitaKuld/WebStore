@@ -53,10 +53,20 @@ function saveProductToLocalStorage(json) {
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-//Connecting Button "Beställ produkt" to checkoutForm.html
+//
 
 const orderButton = document.getElementById("order-button");
 
 orderButton.addEventListener('click', () => {
-    window.open('checkoutForm.html', '_self');
+    //window.open('checkoutForm.html', '_self');
+    alert("Hi there!");
+});
+
+//---------------------------------------------------------------------------------------------------------------------
+//
+
+const cartButton = document.getElementById("go-to-cart-button");
+
+cartButton.addEventListener('click', () => {
+    window.open('cart.html', '_self');
 });

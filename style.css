@@ -127,10 +127,6 @@ footer {
     text-decoration: none;
 }
 
-.order #social-media a {
-    text-decoration: none;
-}
-
 .order #product-image-order {
     padding: 50px;
 }
@@ -167,6 +163,15 @@ footer {
     margin-bottom: 75px;
 }
 
+.order #order-button{
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+.order #go-to-cart-button{
+    font-weight: bold;
+}
+
 .order #logo-card {
     width: 65px;
 }
@@ -179,10 +184,6 @@ footer {
 
 .order a {
     text-decoration: none;
-}
-
-.order button {
-    font-weight: bold;
 }
 
 .order #beginning {
@@ -207,7 +208,6 @@ body {
 
 #checkout .btn {                         
     display: flex;
-    background-color: #838383;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
