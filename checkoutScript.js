@@ -48,19 +48,32 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
         return false;
     }
 
+    /* TEST FUNKTION FÖR ATT KONTROLLERA OM NAMNET INNEHÅLLER BARA BOKSTÄVER. ACCEPTERARAR INTE DUBLA NAMN ("T.EX.: ANN-MARIE")
+    //regex name
+    //const namn = /^[a-zåäöçüûúùéêëèâäàåáïîìíæôöòóÿñ\s]+$/i;
+    const regexN = new RegExp(namn);
+    if (!firstName.match(regexN)) {
+        alert('A name must only contain letters');
+        return false;
+    }*/
+
     if (firstName.length < 2 || firstName.length > 50) {
-        alert('Your first name should be min 2 letters and max 50 letters long');
+        //alert('A name must be between 2 and 50 characters long');
+        let fName = document.querySelector('#firstName');
+        const formControl = fName.parentElement;
+        console.log(formControl);
+        const small = formControl.querySelector('small')
+        small.style.display = "block"
         return false;
     }
 
     if (lastName.length < 2 || lastName.length > 50) {
-        alert('Your last name should be min 2 letters and max 50 letters long');
+        alert('A name must be between 2 and 50 characters long and only contain letters');
         return false;
     }
 
-
     if (!email.includes('@')) {
-        alert('Your email should include "@"');
+        alert('Your email should include "@". Please type in a valid e-mail');
         return false;
     }
 
@@ -69,13 +82,15 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
         return false;
     }
 
-    if (lastName.length < 2 || lastName.length > 50) {
-        alert('Your last name should be min 2 letters and max 50 letters long');
+    //regex telephoneNumber
+    //const telefonnummer = /^[(]?[0-9]{2}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/im;
+    const telefonnummer = /^[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
+    const regexTN = new RegExp(telefonnummer);
+
+    if (!phoneNumber.match(regexTN)) {
+        alert('Your phone number can only contain numbers, - and (). Please type in a valid phone number');
         return false;
     }
-
-    //If-sats för att kontrollera telefonnummer (a tricky one!):
-    //.........................................
 
     if (address.length < 4 || address.length > 50) {
         alert('Your address should be min 4 letters and max 50 letters long');
@@ -88,10 +103,9 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     }
 
     //regex zip-code
-    const svensktPostnummer = /^[0-9]{3}\s?[0-9]{2}$/;
-    const regex = new RegExp(svensktPostnummer);
-
-    if (!zipCode.match(regex) || zipCode.length < 6) {
+    const postnummer = /^[0-9]{3}\s?[0-9]{2}$/;
+    const regexPN = new RegExp(postnummer);
+    if (!zipCode.match(regexPN) || zipCode.length < 6) {
         alert('Enter zipcode by 6 sign with format 000 00');
         return false;
     }
