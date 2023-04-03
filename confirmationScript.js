@@ -87,7 +87,7 @@ function getCustomerFromLocalStorage() {
     console.log(customer);
 
     document.getElementById("customer-info").innerHTML = "<div><h5 style='text-decoration: underline'>Kunduppgifter:</h5><p>E-postadress: <i>" + customer.email + "</i></p><p>Mobiltelefon: <i>" +
-        customer.phoneNumber + "</i></p><p>Kundtyp: <i>Privatperson</i></p></div><br><div><h5 style='text-decoration: underline'>Leveransadress:</h5><p><i>" + customer.firstName + " " + customer.lastName + "</i></p><p><i>" + customer.adress + "</i></p><p><i>" + customer.zipCode + " " + customer.city + "</i></p></div>"
+        customer.phoneNumber + "</i></p><p>Kundtyp: <i>Privatperson</i></p></div><br><div><h5 style='text-decoration: underline'>Leveransadress:</h5><p><i>" + customer.firstName + " " + customer.lastName + "</i></p><p><i>" + customer.address + "</i></p><p><i>" + customer.zipCode + " " + customer.city + "</i></p></div>"
 }
 
 getCustomerFromLocalStorage();
