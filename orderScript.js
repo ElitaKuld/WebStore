@@ -16,14 +16,13 @@ function loadAPI() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const json = JSON.parse(xhr.response);
             renderAPI(json);
-            saveProductToLocalStorage(json); 
         }
     };
 }
 
 function renderAPI(json) {
     const productId = getProductIdFromLocalStorage() - 1; // för att vi ska behandla en array
-//    console.log(json[productId]); //kontroll
+    //    console.log(json[productId]); //kontroll
 
     document.getElementById("image-order").innerHTML = "<a target='_blank' href=" + json[productId].image + "><img class='img-fluid' src=" + json[productId].image + " alt='Demo image' title='Öppna högupplöst bild'/></a>";
     document.getElementById("product-name").innerHTML = json[productId].title;
@@ -36,16 +35,15 @@ function renderAPI(json) {
 loadAPI();
 
 //--------------------------------------------------------------------------------------------------------------------
-//Saving product to Local Storage:
+//Funktion for saving single product to Local Storage:
 
-function saveProductToLocalStorage(json) {
-    const productId = getProductIdFromLocalStorage() - 1; // för att vi ska behandla en array
+function saveProductToLocalStorage() {
     let myProduct = {
-        id: json[productId].id,
-        title: json[productId].title,
-        image: json[productId].image,
-        price: json[productId].price,
-        description: json[productId].description,
+        id: document.getElementById("idnumber").textContent.slice(15),
+        title: document.getElementById("product-name").textContent,
+        image: document.getElementById("image-order").innerHTML.slice(24, document.getElementById("image-order").innerHTML.indexOf('>')),
+        price: document.getElementById("price").innerHTML.slice(0, document.getElementById("price").innerHTML.indexOf(' ')),
+        description: document.getElementById("product-text-info").innerHTML,
     };
     console.log(myProduct);
 
@@ -53,20 +51,80 @@ function saveProductToLocalStorage(json) {
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-//
+//Saving product to Local Storage:
 
 const orderButton = document.getElementById("order-button");
 
 orderButton.addEventListener('click', () => {
-    //window.open('checkoutForm.html', '_self');
-    alert("Hi there!");
+    //saveProductToLocalStorage();
+    saveProduct();
+    //refetch amount of products in the cart and show the number in header
+    fetchAmountOfProducts();
 });
 
 //---------------------------------------------------------------------------------------------------------------------
-//
+//Going to Cart page:
 
 const cartButton = document.getElementById("go-to-cart-button");
 
 cartButton.addEventListener('click', () => {
     window.open('cart.html', '_self');
 });
+
+//-------------------------------------------------------------------------------------------------------------------
+//Funktion for saving an array of products to Local Storage:
+function saveProduct() {
+
+    let product = {
+        id: document.getElementById("idnumber").textContent.slice(15),
+        title: document.getElementById("product-name").textContent,
+        image: document.getElementById("image-order").innerHTML.slice(24, document.getElementById("image-order").innerHTML.indexOf('>')),
+        price: document.getElementById("price").innerHTML.slice(0, document.getElementById("price").innerHTML.indexOf(' ')),
+        description: document.getElementById("product-text-info").innerHTML,
+        quantity: 1
+    };
+
+    //Local Storage
+
+    //Test if products is null
+    if (localStorage.getItem("products") === null) {
+        // Initiate array
+        let products = [];
+        // Add to array
+        products.push(product);
+        // Set to Local Storage
+        localStorage.setItem("products", JSON.stringify(products));
+        console.log(products) // kontroll
+    } else {
+        // Get products from local storage
+        let products = JSON.parse(localStorage.getItem("products"));
+
+        // Check if there is a product with the same id among the products:
+        let isSuchProduct = false;
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].id == product.id) {
+                products[i].quantity++;
+                isSuchProduct = true;
+            }
+        }
+
+        if (!isSuchProduct) {
+            // Add product to array
+            products.push(product);
+        }
+        // Re-set back to LocalStorage
+        localStorage.setItem("products", JSON.stringify(products));
+        console.log(products) // kontroll
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+// Show actual amount of products in the cart:
+function fetchAmountOfProducts() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    let amountOfProducts = products.length;
+
+    if (amountOfProducts > 0) {
+        document.getElementById("quantity").innerHTML = " " + amountOfProducts + " ";
+    }
+}

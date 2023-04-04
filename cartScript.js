@@ -1,3 +1,5 @@
+//Form validation and saving customer info to Local Storage
+
 // Listen for Form Submit
 
 document.getElementById("form").addEventListener("submit", saveDataToLocalStorage);
@@ -153,4 +155,43 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     }
 
     return isValidated;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//Delete product from Cart (and Local Storage)
+function deleteBookmark(url) {
+    // Get bookmarks from localStorage
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    // Loop through the bookmarks
+    for (let i = 0; i < bookmarks.length; i++) {
+        if (bookmarks[i].url == url) {
+            // Remove from array
+            bookmarks.splice(i, 1);
+        }
+    }
+    // Re-set back to LocalStorage
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+    // Re-fetch bookmarks
+    fetchBookmarks();
+}
+
+//Fetch bookmarks
+function fetchBookmarks() {
+    let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+
+    //Get output ID
+    let bookmarksResults = document.getElementById("bookmarksResults");
+
+    //Build output
+    bookmarksResults.innerHTML = "";
+    for (let i = 0; i < bookmarks.length; i++) {
+        let name = bookmarks[i].name;
+        let url = bookmarks[i].url;
+
+        bookmarksResults.innerHTML += "<div class='well'>" + "<h3>" + name + "<a class='btn btn-success' target='_blank' href='" + url + "'>Visit</a>" +
+            "<a onclick='deleteBookmark(\"" + url + "\")' class='btn btn-danger' href='#'>Delete</a>"
+        "</h3>" +
+            "</div>";
+    }
 }
