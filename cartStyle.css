@@ -8,6 +8,7 @@
 .VG-header #header-name {
     color: #8062ad;
     font-size: 50px;
+    margin-top: 20px;
 }
 
 .VG-header #cart {
@@ -53,7 +54,7 @@ hr {
 .cart #delete-button {
     border: 1px solid gray;
     border-radius: 5px;
-    width: 10%;
+    width: 20%;
     background: none;
     float: right;
     padding: 2px;
@@ -88,7 +89,7 @@ body {
 }
 
 .cart #update-button {
-    width: 15%;
+    width: 25%;
     padding: 5px;
     background: none;
     border-color: gray;
@@ -197,4 +198,38 @@ body {
     align-items: center;
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.cart #product-price{
+    width: 20%;
+}
+
+.cart #product-title{
+    width: 30%;
+}
+
+.cart #tom-rad{
+    height: 50px;
+}
+
+.cart #totalt-rad{
+    font-weight: bold;
+}
+
+.cart #pris-rad{
+    font-weight: bold;
+}
+
+.cart #varav-moms-rad{
+    font-size: 14px;
+    font-style: italic;
+}
+
+.cart #moms-rad{
+    font-size: 14px;
+    font-style: italic;
+}
+
+#sammanfattning-table td{
+    border-style: none;
 }

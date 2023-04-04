@@ -37,57 +37,20 @@
                                         <tr>
                                             <th></th>
                                             <!--Image-->
-                                            <th>Produkt</th>
+                                            <th id="product-title">Produkt</th>
                                             <th>Antal</th>
-                                            <th>Pris</th>
+                                            <th id="product-price">Pris</th>
                                             <th></th>
                                             <!--Delete button-->
                                         </tr>
                                     </thead>
-                                    <tbody class="table-group-divider">
-                                        <tr>
-                                            <td>
-                                                <div class="container" id="image-container">
-                                                    <img id="product-image" class="img-fluid"
-                                                        src="images/demo-image.jpg" alt="Demo image" />
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div id="product-name">
-                                                    Lorem ipsum dolor sit amet.
-                                                </div>
-                                                <div id="artikelnummer">Art.nr:</div>
-                                            </td>
-                                            <td>
-                                                <div class="container">
-                                                    <form>
-                                                        <div class="input-group">
-                                                            <input type="number" id="number-of-products"
-                                                                class="form-control" placeholder="1" />
-                                                            <button class="btn" id="update-button">
-                                                                <img class="img-fluid" src="images/update.png"
-                                                                    alt="Update icon" />
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div id="enhet">Enhet:</div>
-                                                <div id="totalt">Totalt:</div>
-                                            </td>
-                                            <td>
-                                                <button id="delete-button">
-                                                    <img class="img-fluid" src="images/garbage-bin.jpg"
-                                                        alt="Garbage bin icon" />
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <tbody class="table-group-divider" id="show-products">
+                                            <!--Visa produkter som ligger i Local Storage-->
                                     </tbody>
                                 </table>
                             </div>
-                            <button id="tom-varukorg" class="btn"><img id="tom-varukorg-image"
-                                    src="images/garbage-bin.jpg" alt="Garbage bin icon" />TÖM VARUKORG</button>
+                            <button id="tom-varukorg" class="btn" title="Ta bort alla produkterna" onclick="deleteAllProducts()"><img id="tom-varukorg-image"
+                                    src="images/garbage-bin.jpg" alt="Garbage bin icon">TÖM VARUKORG</button>
                         </div>
                     </div>
                 </div>
@@ -100,33 +63,33 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="container">
-                                <table class="table">
+                                <table class="table" id="sammanfattning-table">
                                     <thead>
                                         <tr>
-                                            <th>2 artiklar</th>
+                                            <th id="amount-of-products"></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
                                         <tr>
                                             <td>Artiklar:</td>
-                                            <td>Pris</td>
+                                            <td id="total-sum"></td>
                                         </tr>
                                         <tr>
                                             <td>Frakt:</td>
-                                            <td>Pris</td>
+                                            <td id="shipping-fee"></td>
+                                        </tr>
+                                        <tr id="tom-rad">
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td aria-placeholder=""></td>
-                                            <td aria-placeholder=""></td>
+                                            <td id="totalt-rad">Totalt:</td>
+                                            <td id="pris-rad"></td>
                                         </tr>
                                         <tr>
-                                            <td>Totalt:</td>
-                                            <td>Pris</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Varav moms:</td>
-                                            <td>Moms</td>
+                                            <td id="varav-moms-rad">Varav moms:</td>
+                                            <td id="moms-rad"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -223,7 +186,7 @@
                                             <option>Postnord</option>
                                             <option>DHL</option>
                                         </select>
-                                        <div class="input-group-text">69 SEK</div>
+                                        <div class="input-group-text" id="actual-shipping-fee">7 USD</div>
                                     </div>
                                 </form>
                             </div>
@@ -280,7 +243,7 @@
                                         <div class="col-md-6 md-3">
                                             <label for="email">Email</label>
                                             <input type="email" id="email" class="form-control"
-                                                placeholder="yourName@example.com" required>
+                                                placeholder="youremail@example.com" required>
                                             <small style="display: none; color: #ea241e">Your email should include @ and
                                                 be max 50
                                                 letters</small>

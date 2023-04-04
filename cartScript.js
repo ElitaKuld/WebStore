@@ -1,7 +1,6 @@
-//Form validation and saving customer info to Local Storage
+//Validating form and saving customer info to Local Storage
 
 // Listen for Form Submit
-
 document.getElementById("form").addEventListener("submit", saveDataToLocalStorage);
 
 function saveDataToLocalStorage(e) {
@@ -158,40 +157,165 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------
-//Delete product from Cart (and Local Storage)
-function deleteBookmark(url) {
-    // Get bookmarks from localStorage
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-    // Loop through the bookmarks
-    for (let i = 0; i < bookmarks.length; i++) {
-        if (bookmarks[i].url == url) {
+//Delete one product from Cart (and Local Storage)
+
+function deleteProduct(button) {
+    let productId = button.parentElement.parentElement.querySelector("#artikelnummer").textContent.slice(8);
+    console.log(productId); // kontroll
+
+    let products = JSON.parse(localStorage.getItem("products"));
+
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id == productId) {
             // Remove from array
-            bookmarks.splice(i, 1);
+            products.splice(i, 1);
         }
     }
     // Re-set back to LocalStorage
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    localStorage.setItem("products", JSON.stringify(products));
 
-    // Re-fetch bookmarks
-    fetchBookmarks();
+    // Re-fetch products and total sum/info
+    showProductsInTheCart();
+    showTotalSum();
+    fetchAmountOfProducts();
 }
 
-//Fetch bookmarks
-function fetchBookmarks() {
-    let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+//------------------------------------------------------------------------------------------------------------------------------------
+//Delete all products from Local Storage
 
-    //Get output ID
-    let bookmarksResults = document.getElementById("bookmarksResults");
+function deleteAllProducts(){
+    let products = JSON.parse(localStorage.getItem("products"));
+    //Clear the array
+    products.length = 0;
 
-    //Build output
-    bookmarksResults.innerHTML = "";
-    for (let i = 0; i < bookmarks.length; i++) {
-        let name = bookmarks[i].name;
-        let url = bookmarks[i].url;
+    // Re-set back to LocalStorage
+    localStorage.setItem("products", JSON.stringify(products));
 
-        bookmarksResults.innerHTML += "<div class='well'>" + "<h3>" + name + "<a class='btn btn-success' target='_blank' href='" + url + "'>Visit</a>" +
-            "<a onclick='deleteBookmark(\"" + url + "\")' class='btn btn-danger' href='#'>Delete</a>"
-        "</h3>" +
-            "</div>";
+    // Re-fetch products and total sum/info
+    showProductsInTheCart();
+    showTotalSum();
+    fetchAmountOfProducts();
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------
+//Showing products in the "Varukorg" section with the help of Local Storage:
+
+function showProductsInTheCart() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    let output = "";
+    for (let i = 0; i < products.length; i++) {
+        output += "<tr><td><div class='container' id='image-container'><img id='product-image' class='img-fluid' src=" + products[i].image + " alt='Product image'></div></td><td><div id='product-name'>" + products[i].title + "</div><div id='artikelnummer'>Art.nr: " + products[i].id + "</div></td><td><div class='container'><form id='update-form'><div class='input-group'><input type='number' id='number-of-products' class='form-control' placeholder=" + products[i].quantity + " min='1'><button class='btn' id='update-button' title='Uppdatera antal'><img class='img-fluid' src='images/update.png' alt='Update icon'></button></div></form></div></td><td><div id='enhet'>Enhet: " + products[i].price + " USD</div><div id='totalt'>Totalt: " + (products[i].price * products[i].quantity) + " USD</div></td><td><button class='btn' id='delete-button'><img class='img-fluid' src='images/garbage-bin.jpg' alt='Garbage bin icon' title='Ta bort produkten'></button></td></tr >"
+    }
+    document.getElementById("show-products").innerHTML = output;
+    addActionListener();
+}
+
+showProductsInTheCart();
+
+function addActionListener() {
+    const deleteButtons = document.querySelectorAll("#delete-button");
+    const updateForms = document.querySelectorAll("#update-form");
+    deleteButtons.forEach((button) => console.log(button)); // kontroll
+    deleteButtons.forEach((button) => button.addEventListener('click', () => {
+        deleteProduct(button);
+    })
+    );
+    updateForms.forEach((form) => form.addEventListener("submit",  (e) => {
+        //Prevent form from submitting
+        e.preventDefault();
+        updateQuantity(form);
+    })
+    );
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+//Showing information about the total sum to pay in "Sammanfattning" section:
+
+function showTotalSum() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    console.log(products) // kontroll
+
+    let amountOfProducts = 0
+    let totalPrice = 0
+
+    for (let i = 0; i < products.length; i++) {
+        amountOfProducts += Number(products[i].quantity);
+        totalPrice += products[i].quantity * products[i].price;
+    }
+
+    //Showing the amount of products
+    if (amountOfProducts === 1 || (amountOfProducts % 10) === 1) {
+        document.getElementById("amount-of-products").innerHTML = amountOfProducts + " artikel"
+    }
+    else {
+        document.getElementById("amount-of-products").innerHTML = amountOfProducts + " artiklar"
+    }
+
+    //Showing the total price
+    let totalSum = totalPrice.toFixed(2) + " USD"
+    document.getElementById("total-sum").innerHTML = totalSum
+
+    //Showing shipping fee
+    let shippingFee = document.getElementById("actual-shipping-fee").innerHTML
+    document.getElementById("shipping-fee").innerHTML = shippingFee
+
+    //Showing total of price + shipping fee
+    let priceAndShippingFee = Number(totalPrice.toFixed(2)) + Number(shippingFee.slice(0, shippingFee.indexOf(" ")))
+    document.getElementById("pris-rad").innerHTML = priceAndShippingFee + " USD"
+
+    //Showing moms
+    document.getElementById("moms-rad").innerHTML = (priceAndShippingFee * 0.2).toFixed(2) + " USD"
+}
+
+showTotalSum();
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------
+//Update quantity
+
+function updateQuantity(form){
+    let productId = form.parentElement.parentElement.parentElement.querySelector("#artikelnummer").textContent.slice(8);
+    console.log(productId); // kontroll
+
+    let desiredQuantity = Number(form.parentElement.parentElement.parentElement.querySelector("#number-of-products").value);
+    console.log(desiredQuantity); // kontroll
+    
+    let products = JSON.parse(localStorage.getItem("products"));
+
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id == productId) {
+            products[i].quantity = desiredQuantity;
+        }
+    }
+    // Re-set back to LocalStorage
+    localStorage.setItem("products", JSON.stringify(products));
+
+    // Re-fetch products and total sum/info
+    showProductsInTheCart();
+    showTotalSum();
+    fetchAmountOfProducts();
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+// Show actual amount of products in the cart:
+function fetchAmountOfProducts() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    let amountOfProducts = 0;
+
+    for (let i = 0; i < products.length; i++) {
+        amountOfProducts += products[i].quantity;
+    }
+
+    if (products.length > 0) {
+        document.getElementById("quantity").innerHTML = " " + amountOfProducts + " ";
+    }
+    else{
+        document.getElementById("quantity").innerHTML = " ";
     }
 }
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
