@@ -45,12 +45,13 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider" id="show-products">
-                                            <!--Visa produkter som ligger i Local Storage-->
+                                        <!--Visa produkter som ligger i Local Storage-->
                                     </tbody>
                                 </table>
                             </div>
-                            <button id="tom-varukorg" class="btn" title="Ta bort alla produkterna" onclick="deleteAllProducts()"><img id="tom-varukorg-image"
-                                    src="images/garbage-bin.jpg" alt="Garbage bin icon">TÖM VARUKORG</button>
+                            <button id="tom-varukorg" class="btn" title="Ta bort alla produkterna"
+                                onclick="deleteAllProducts()"><img id="tom-varukorg-image" src="images/garbage-bin.jpg"
+                                    alt="Garbage bin icon">TÖM VARUKORG</button>
                         </div>
                     </div>
                 </div>
@@ -122,17 +123,6 @@
                 </div>
             </div>
 
-            <!--Vad roligt...-->
-            <div class="col-9" id="col-roligt">
-                <div class="card-holder" id="card-holder">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="roligt">Vad roligt att du väljer att handla hos oss, tack!</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!--Leveransland-->
             <div class="col-9" id="col-land">
                 <h4>Leverans</h4>
@@ -140,12 +130,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="container">
-                                <form>
+                                <form id="test">
                                     <label for="land" class="form-label" id="land">Leveransland</label>
                                     <div class="input-group">
                                         <div class="input-group-text" id="earth-cell"><img id="earth" class="img-fluid"
                                                 src="images/earth.png" alt="Earth icon"></div>
                                         <select class="form-select" id="country-form">
+                                            <option value="Välj-land">Välj land</option>
                                             <option value="Sverige">Sverige</option>
                                             <option value="Norge">Norge</option>
                                             <option value="Danmark">Danmark</option>
@@ -156,11 +147,13 @@
                                             <option value="Spanien">Spanien</option>
                                             <option value="Storbrittanien">Storbrittanien</option>
                                             <option value="USA">USA</option>
-                                            <option value="New Zealand">New Zealand</option>
+                                            <option value="Nya Zeeland">Nya Zeeland</option>
                                             <option value="Australien">Australien</option>
                                             <option value="Japan">Japan</option>
                                         </select>
-                                        <div class="input-group-text" id="actual-country"><img src="images/sweden-flag.jpg" alt="Sverige flagga icon" id="country-flag"></div>
+                                        <div class="input-group-text" id="actual-country"><img
+                                                src="images/question-mark.png" alt="Question mark icon"
+                                                id="country-flag"></div>
                                     </div>
                                 </form>
                             </div>
@@ -181,11 +174,14 @@
                                         <div class="input-group-text" id="check-cell"><img id="check" class="img-fluid"
                                                 src="images/check.png" alt="Checked icon"></div>
                                         <select class="form-select" id="shipping-form">
+                                            <option value="Välj-leverantör">Välj leverantör</option>
                                             <option value="Postnord">Postnord</option>
                                             <option value="DHL">DHL</option>
                                             <option value="Schenker">Schenker</option>
                                         </select>
-                                        <div class="input-group-text" id="actual-shipping-fee">7 USD</div>
+                                        <div class="input-group-text" id="actual-shipping-fee"><img
+                                                src="images/question-mark.png" alt="Question mark icon"
+                                                id="country-flag"></div>
                                     </div>
                                 </form>
                             </div>
@@ -197,23 +193,6 @@
             <!--Slutför din beställning-->
             <div class="col-9" id="col-slut">
                 <h4>Slutför din beställning</h4>
-                <div class="card-holder" id="card-holder">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="container" id="message">
-                                <form>
-                                    <div><label for="text" class="form-label">Meddelande <i id="frivilligt">
-                                                (frivilligt)</i></label></div>
-                                    <textarea id="meddelande" name="meddelande" rows="5" cols="100" maxlength="1000"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Dina uppgifter-->
-            <div class="col-9" id="col-uppgifter">
                 <div class="card-holder" id="card-holder">
                     <div class="card">
                         <div class="card-body">
@@ -328,8 +307,8 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="submit" id="button-submit">
-                                                <button type="submit" id="submit"
-                                                    class="btn btn-success">SLUTFÖR DIN BESTÄLLNING</button>
+                                                <button type="submit" id="submit" class="btn btn-success">SLUTFÖR DIN
+                                                    BESTÄLLNING</button>
                                             </div>
                                         </div>
                                     </div>

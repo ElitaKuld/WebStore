@@ -59,6 +59,7 @@ const hideError = (element) => {
 // Validate Form
 function validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV) {
 
+    let shippingFeeChosen = document.getElementById("shipping-fee").innerHTML;
     let isValidated = true;
 
     if (!firstName || !lastName || !email || !phoneNumber || !address || !city || !zipCode || !cardNumber || !expireDate || !CVV) {
@@ -141,6 +142,11 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
     }
     else {
         hideError(document.querySelector('#zipCode'))
+    }
+
+    if(shippingFeeChosen === ""){
+        alert("Vänligen välj leveransland och fraktalternativ innan du slutför beställningen");
+        isValidated = false;
     }
 
     return isValidated;
@@ -246,7 +252,7 @@ function showTotalSum() {
     document.getElementById("total-sum").innerHTML = totalSum
 
     //Showing shipping fee
-    let shippingFee = document.getElementById("actual-shipping-fee").innerHTML
+    let shippingFee = document.getElementById("actual-shipping-fee").textContent
     document.getElementById("shipping-fee").innerHTML = shippingFee
 
     //Showing total of price + shipping fee
@@ -305,93 +311,228 @@ function fetchAmountOfProducts() {
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------
-// Change shipping fee according to contry and leverantör
-let country = "Sverige";
+// Change flag according to country of delivery
 
+let country = "";
 const countrySelect = document.getElementById("country-form")
 countrySelect.addEventListener("change", () => {
     country = countrySelect.value
     console.log(country) // kontroll
     changeFlag(country);
+    resetShippingFeeForm()
+    document.getElementById("shipping-fee").innerHTML = "";
 });
 
+function changeFlag(value) {
+    let flag = document.getElementById("actual-country")
+    if (value === "Sverige") {
+        flag.innerHTML = "<img src='images/sweden-flag.jpg' alt='Sverige flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Norge") {
+        flag.innerHTML = "<img src='images/norway-flag.jpg' alt='Norge flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Danmark") {
+        flag.innerHTML = "<img src='images/danmark-flag.jpg' alt='Danmark flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Finland") {
+        flag.innerHTML = "<img src='images/finland-flag.png' alt='Finland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Estland") {
+        flag.innerHTML = "<img src='images/estland-flag.png' alt='Estland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Frankrike") {
+        flag.innerHTML = "<img src='images/frankrike-flag.jpg' alt='Frankrike flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Tyskland") {
+        flag.innerHTML = "<img src='images/tyskland-flag.png' alt='Tyskland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Spanien") {
+        flag.innerHTML = "<img src='images/spanien-flag.jpg' alt='Spanien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Storbrittanien") {
+        flag.innerHTML = "<img src='images/storbrittanien-flag.png' alt='Storbrittanien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "USA") {
+        flag.innerHTML = "<img src='images/usa-flag.png' alt='USA flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Nya Zeeland") {
+        flag.innerHTML = "<img src='images/new-zealand-flag.jpg' alt='New Zealand flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Australien") {
+        flag.innerHTML = "<img src='images/australien-flag.png' alt='Australien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Japan") {
+        flag.innerHTML = "<img src='images/japan-flag.jpg' alt='Japan flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Välj-land") {
+        flag.innerHTML = "<img src='images/question-mark.png' alt='Question mark icon' id='country-flag'></img>"
+    }
+    else {
+        flag.innerHTML = "<img src='images/rainbow-flag.png' alt='Rainbow flagga icon' id='country-flag'></img>"
+    }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------
+// Change shipping fee according to leverantör
+
 const select = document.getElementById("shipping-form")
+let fee = document.getElementById("actual-shipping-fee")
 select.addEventListener("change", () => {
     console.log(select.value) // kontroll
     changeShippingFee(select.value)
 });
 
-// Change flag according to land of delivery
-function changeFlag(value){
-    let flag = document.getElementById("actual-country")
-    if (value === "Sverige"){
-        flag.innerHTML = "<img src='images/sweden-flag.jpg' alt='Sverige flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Norge"){
-        flag.innerHTML = "<img src='images/norway-flag.jpg' alt='Norge flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Danmark"){
-        flag.innerHTML = "<img src='images/danmark-flag.jpg' alt='Danmark flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Finland"){
-        flag.innerHTML = "<img src='images/finland-flag.png' alt='Finland flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Estland"){
-        flag.innerHTML = "<img src='images/estland-flag.png' alt='Estland flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Frankrike"){
-        flag.innerHTML = "<img src='images/frankrike-flag.jpg' alt='Frankrike flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Tyskland"){
-        flag.innerHTML = "<img src='images/tyskland-flag.png' alt='Tyskland flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Spanien"){
-        flag.innerHTML = "<img src='images/spanien-flag.jpg' alt='Spanien flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Storbrittanien"){
-        flag.innerHTML = "<img src='images/storbrittanien-flag.png' alt='Storbrittanien flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "USA"){
-        flag.innerHTML = "<img src='images/usa-flag.png' alt='USA flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "New Zealand"){
-        flag.innerHTML = "<img src='images/new-zealand-flag.jpg' alt='New Zealand flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Australien"){
-        flag.innerHTML = "<img src='images/australien-flag.png' alt='Australien flagga icon' id='country-flag'></img>"
-    }
-    else if (value === "Japan"){
-        flag.innerHTML = "<img src='images/japan-flag.jpg' alt='Japan flagga icon' id='country-flag'></img>"
-    }
-    else{
-        flag.innerHTML = "<img src='images/rainbow-flag.png' alt='Rainbow flagga icon' id='country-flag'></img>"
-    }
-}
-
-
 function changeShippingFee(value) {
-    let fee = document.getElementById("actual-shipping-fee")
-    if (country === "Sverige"){
-        if(value === "Postnord"){
+    if (country === "Sverige") {
+        if (value === "Postnord") {
             fee.innerHTML = "7 USD"
         }
-        else if (value === "DHL"){
+        else if (value === "DHL") {
             fee.innerHTML = "11 USD"
         }
-        else if (value === "Schenker"){
+        else if (value === "Schenker") {
             fee.innerHTML = "17 USD"
         }
     }
-    else if (country === "Norge"){
-        if(value === "Postnord"){
-            fee.innerHTML = "12 USD"
+    else if (country === "Norge") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
         }
-        else if (value === "DHL"){
-            fee.innerHTML = "17 USD"
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
         }
-        else if (value === "Schenker"){
-            fee.innerHTML = "23 USD"
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
         }
+    }
+    else if (country === "Danmark") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Finland") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Estland") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Frankrike") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Spanien") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Tyskland") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "Storbrittanien") {
+        if (value === "Postnord") {
+            fee.innerHTML = "35 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "39 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "45 USD"
+        }
+    }
+    else if (country === "USA") {
+        if (value === "Postnord") {
+            fee.innerHTML = "50 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "54 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "60 USD"
+        }
+    }
+    else if (country === "Nya Zeeland") {
+        if (value === "Postnord") {
+            fee.innerHTML = "50 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "54 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "60 USD"
+        }
+    }
+    else if (country === "Australien") {
+        if (value === "Postnord") {
+            fee.innerHTML = "50 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "54 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "60 USD"
+        }
+    }
+    else if (country === "Japan") {
+        if (value === "Postnord") {
+            fee.innerHTML = "50 USD"
+        }
+        else if (value === "DHL") {
+            fee.innerHTML = "54 USD"
+        }
+        else if (value === "Schenker") {
+            fee.innerHTML = "60 USD"
+        }
+    }
+    else if (country === "Välj-land") {
+        fee.innerHTML = "<img src='images/question-mark.png' alt='Question mark icon' id='country-flag'></img>"
     }
     showTotalSum();
+}
+
+function resetShippingFeeForm() {
+    select.selectedIndex = 0;
+    fee.innerHTML = "<img src='images/question-mark.png' alt='Question mark icon' id='country-flag'></img>"
 }

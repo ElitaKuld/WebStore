@@ -108,10 +108,6 @@ body {
     margin-top: 50px;
 }
 
-.cart #roligt {
-    font-weight: bold;
-}
-
 .cart #logo-card {
     width: 65px;
 }
@@ -142,10 +138,6 @@ body {
     margin-bottom: 25px;
 }
 
-.cart #col-roligt {
-    margin-bottom: 50px;
-}
-
 .cart #col-metod {
     margin-bottom: 50px;
 }
@@ -158,22 +150,8 @@ body {
     background: none;
 }
 
-.cart #frivilligt {
-    color: gray;
-}
-
-.cart #message {
-    margin-top: 25px;
-    margin-right: 50px;
-    margin-bottom: 25px;
-    margin-left: 100px;
-}
-
 .cart #uppgifter {
     margin-bottom: 25px;
-}
-
-.cart #uppgifter {
     font-weight: bold;
 }
 
