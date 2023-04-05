@@ -100,6 +100,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: none
 }
 
 .confirmation #demo-image {
@@ -246,4 +247,8 @@ h2 {
     border-radius: 5px;
     width: 50rem;
     color: #000000;
+}
+
+footer{
+    margin-bottom: 25px;
 }

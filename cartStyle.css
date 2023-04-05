@@ -1,10 +1,3 @@
-/*.cart #header {
-    color: cornflowerblue;
-    font-size-adjust: 50;
-    margin-top: 20px;
-    font-size: 50px;
-}*/
-
 .VG-header #header-name {
     color: #8062ad;
     font-size: 50px;
@@ -53,6 +46,7 @@ hr {
     border: 1px solid gray;
     border-radius: 5px;
     width: 20%;
+    min-width: 35px;
     background: none;
     float: right;
     padding: 2px;
@@ -61,6 +55,7 @@ hr {
 .cart #product-image {
     padding: 5px;
     width: 150px;
+    min-width: 150px;
     border: 1px solid gray;
     border-radius: 5px;
     margin: 5px;
@@ -155,7 +150,7 @@ body {
     font-weight: bold;
 }
 
-.cart #card-holder {
+.card-holder {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     /*, 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
     border-radius: 6px;
@@ -208,6 +203,10 @@ body {
     width: 25px;
 }
 
+.cart #shipping-fee-icon {
+    width: 25px;
+}
+
 .cart #actual-country {
     background: none;
 }
@@ -215,4 +214,52 @@ body {
 .cart #actual-shipping-fee {
     background: none;
     font-weight: bold;
+}
+
+footer {
+    margin-bottom: 25px;
+}
+
+.cart #update-form {
+    width: 135px;
+}
+
+#col-first-name {
+    margin-bottom: 25px;
+}
+
+#col-last-name {
+    margin-bottom: 25px;
+}
+
+#col-email {
+    margin-bottom: 25px;
+}
+
+#col-phone-number {
+    margin-bottom: 25px;
+}
+
+#col-address {
+    margin-bottom: 25px;
+}
+
+#col-zip-code {
+    margin-bottom: 25px;
+}
+
+#col-city {
+    margin-bottom: 25px;
+}
+
+#col-card-number {
+    margin-bottom: 25px;
+}
+
+#col-expire-date {
+    margin-bottom: 25px;
+}
+
+#col-cvv {
+    margin-bottom: 25px;
 }

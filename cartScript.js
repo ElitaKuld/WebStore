@@ -60,6 +60,7 @@ const hideError = (element) => {
 function validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV) {
 
     let shippingFeeChosen = document.getElementById("shipping-fee").innerHTML;
+    let amountOfProducts = JSON.parse(localStorage.getItem("products")).length;
     let isValidated = true;
 
     if (!firstName || !lastName || !email || !phoneNumber || !address || !city || !zipCode || !cardNumber || !expireDate || !CVV) {
@@ -144,7 +145,12 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
         hideError(document.querySelector('#zipCode'))
     }
 
-    if(shippingFeeChosen === ""){
+    if (amountOfProducts === 0) {
+        alert("Vänligen välj produkter du vill beställa innan du slutför beställningen");
+        isValidated = false;
+    }
+
+    if (shippingFeeChosen === "") {
         alert("Vänligen välj leveransland och fraktalternativ innan du slutför beställningen");
         isValidated = false;
     }
@@ -170,9 +176,17 @@ function deleteProduct(button) {
     // Re-set back to LocalStorage
     localStorage.setItem("products", JSON.stringify(products));
 
+    if (products.length === 0) {
+        resetCountryForm()
+        resetShippingFeeForm()
+        cleanSammanfattning()
+    }
+    else {
+        showTotalSum();
+    }
+
     // Re-fetch products and total sum/info
     showProductsInTheCart();
-    showTotalSum();
     fetchAmountOfProducts();
 }
 
@@ -191,6 +205,9 @@ function deleteAllProducts() {
     showProductsInTheCart();
     showTotalSum();
     fetchAmountOfProducts();
+    resetCountryForm()
+    resetShippingFeeForm()
+    cleanSammanfattning()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -257,13 +274,21 @@ function showTotalSum() {
 
     //Showing total of price + shipping fee
     let priceAndShippingFee = Number(totalPrice.toFixed(2)) + Number(shippingFee.slice(0, shippingFee.indexOf(" ")))
-    document.getElementById("pris-rad").innerHTML = priceAndShippingFee + " USD"
+    document.getElementById("pris-rad").innerHTML = priceAndShippingFee.toFixed(2) + " USD"
 
     //Showing moms
     document.getElementById("moms-rad").innerHTML = (priceAndShippingFee * 0.2).toFixed(2) + " USD"
 }
 
-showTotalSum();
+let amountOfProductsInTheCart = JSON.parse(localStorage.getItem("products")).length;
+if (amountOfProductsInTheCart === 0) {
+    showTotalSum();
+    cleanSammanfattning()
+}
+else {
+    showTotalSum();
+}
+
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -535,4 +560,16 @@ function changeShippingFee(value) {
 function resetShippingFeeForm() {
     select.selectedIndex = 0;
     fee.innerHTML = "<img src='images/question-mark.png' alt='Question mark icon' id='country-flag'></img>"
+}
+
+function resetCountryForm() {
+    countrySelect.selectedIndex = 0;
+    document.getElementById("actual-country").innerHTML = "<img src='images/question-mark.png' alt='Question mark icon' id='country-flag'></img>"
+}
+
+function cleanSammanfattning() {
+    document.getElementById("total-sum").innerHTML = "";
+    document.getElementById("shipping-fee").innerHTML = "";
+    document.getElementById("pris-rad").innerHTML = "";
+    document.getElementById("moms-rad").innerHTML = "";
 }

@@ -46,7 +46,7 @@ function getProductsFromLocalStorage() {
     console.log(products)
     let output = "";
     for (let i = 0; i < products.length; i++) {
-        output += "<tr><td><div id='product-image'><img src=" + products[i].image + " class='img-fluid' alt='Produkt bild' id='demo-image'></div></td><td>" + products[i].title + "</td><td>" + products[i].id + "</td><td>"+ products[i].quantity + "</td><td>" + getPriceWithoutMoms(products[i].price) + "</td><td>25%</td><td>" + getMoms(products[i].price) + "</td><td>" + products[i].price + "</td></tr>"
+        output += "<tr><td><div id='product-image'><img src=" + products[i].image + " alt='Produkt bild' id='demo-image'></div></td><td>" + products[i].title + "</td><td>" + products[i].id + "</td><td>"+ products[i].quantity + "</td><td>" + getPriceWithoutMoms(products[i].price) + "</td><td>25%</td><td>" + getMoms(products[i].price) + "</td><td>" + products[i].price + "</td></tr>"
     }
     document.getElementById("product-info").innerHTML = output;
 }
