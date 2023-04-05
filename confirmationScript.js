@@ -43,11 +43,21 @@ showOrderNumber();
 
 function getProductsFromLocalStorage() {
     let products = JSON.parse(localStorage.getItem("products"));
-    console.log(products)
+    console.log(products) // kontroll
+
+    let amountOfProducts = 0
+    let totalPrice = 0
+
+    for (let i = 0; i < products.length; i++) {
+        amountOfProducts += Number(products[i].quantity);
+        totalPrice += products[i].quantity * products[i].price;
+    }
+
     let output = "";
     for (let i = 0; i < products.length; i++) {
         output += "<tr><td><div id='product-image'><img src=" + products[i].image + " alt='Produkt bild' id='demo-image'></div></td><td>" + products[i].title + "</td><td>" + products[i].id + "</td><td>"+ products[i].quantity + "</td><td>" + getPriceWithoutMoms(products[i].price) + "</td><td>25%</td><td>" + getMoms(products[i].price) + "</td><td>" + products[i].price + "</td></tr>"
     }
+    output += "<tr id='sammanfattning-rad'><td></td><td></td><td id='totalt-bold'>Totalt:</td><td id='amount-bold'>" + amountOfProducts + "</td><td id='pwm-bold'>" + getPriceWithoutMoms(totalPrice) + "</td><td id='momss-bold'>25%</td><td id='moms-bold'>" + getMoms(totalPrice) + "</td><td id='price-bold'>" + totalPrice + "</td></tr>"
     document.getElementById("product-info").innerHTML = output;
 }
 
@@ -64,25 +74,6 @@ function getMoms(price) {
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-/* TEST INFORMATION OCH METODER:
-const customer = {
-    fullName: "Winnie the Pooh",
-    email: "winnie@honey.com",
-    phoneNumber: "(46)72-123 12 12",
-    address: "Hundred Acre Wood 12",
-    city: "Forest",
-    zipCode: "123 45"
-}
-
-function showCustomerInfo(customer) {
-    document.getElementById("customer-info").innerHTML = "<h5>Kunduppgifter:</h5><p>E-postadress: " + customer.email + "</p><p>Mobiltelefon: " +
-        customer.phoneNumber + "</p><p>Kundtyp: Privatperson</p><h5>Leveransadress:</h5><p>" + customer.fullName + "</p><p>" + customer.address +
-        "</p><p>" + customer.zipCode + " " + customer.city + "</p>"
-}
-
-showCustomerInfo(customer);*/
-
 function getCustomerFromLocalStorage() {
     let customer = JSON.parse(localStorage.getItem("customerInfo"));
     console.log(customer);
@@ -94,3 +85,18 @@ function getCustomerFromLocalStorage() {
 getCustomerFromLocalStorage();
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
+//Tömma Local Storage:
+window.onload = function()
+{
+    let products = JSON.parse(localStorage.getItem("products"));
+    products.length = 0;
+    localStorage.setItem("products", JSON.stringify(products));
+
+    let productId = JSON.parse(localStorage.getItem("productId"));
+    productId = 0;
+    localStorage.setItem("productId", JSON.stringify(productId));
+
+    let customer = JSON.parse(localStorage.getItem("customerInfo"));
+    customer = null;
+    localStorage.setItem("customerInfo", JSON.stringify(customer));
+}

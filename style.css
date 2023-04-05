@@ -120,6 +120,35 @@ footer {
     margin-right: auto;
 }
 
+.confirmation #totalt-bold {
+    font-weight: bold;
+}
+
+.confirmation #amount-bold {
+    font-weight: bold;
+}
+
+.confirmation #pwm-bold {
+    font-weight: bold;
+}
+
+.confirmation #momss-bold {
+    font-weight: bold;
+}
+
+.confirmation #moms-bold {
+    font-weight: bold;
+}
+
+.confirmation #price-bold {
+    font-weight: bold;
+}
+
+.confirmation #sammanfattning-rad{
+    border-bottom-color: white;
+    border-top-width:initial;
+}
+
 .order #product-image-order {
     padding: 50px;
 }
@@ -249,6 +278,6 @@ h2 {
     color: #000000;
 }
 
-footer{
+footer {
     margin-bottom: 25px;
 }
