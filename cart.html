@@ -97,21 +97,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!--Vad roligt...-->
-            <div class="col-9" id="col-roligt">
-                <div class="card-holder" id="card-holder">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="roligt">Vad roligt att du väljer att handla hos oss, tack!</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Info...-->
-            <div class="col-3" id="col-info">
                 <div class="card-holder" id="card-holder">
                     <div class="card">
                         <div class="card-body">
@@ -136,6 +122,17 @@
                 </div>
             </div>
 
+            <!--Vad roligt...-->
+            <div class="col-9" id="col-roligt">
+                <div class="card-holder" id="card-holder">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="roligt">Vad roligt att du väljer att handla hos oss, tack!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--Leveransland-->
             <div class="col-9" id="col-land">
                 <h4>Leverans</h4>
@@ -148,21 +145,22 @@
                                     <div class="input-group">
                                         <div class="input-group-text" id="earth-cell"><img id="earth" class="img-fluid"
                                                 src="images/earth.png" alt="Earth icon"></div>
-                                        <select class="form-select">
-                                            <option>Sverige</option>
-                                            <option>Norge</option>
-                                            <option>Danmark</option>
-                                            <option>Finland</option>
-                                            <option>Estland</option>
-                                            <option>Frankrike</option>
-                                            <option>Tyskland</option>
-                                            <option>Spanien</option>
-                                            <option>Storbrittanien</option>
-                                            <option>USA</option>
-                                            <option>New Zealand</option>
-                                            <option>Australien</option>
-                                            <option>Japan</option>
+                                        <select class="form-select" id="country-form">
+                                            <option value="Sverige">Sverige</option>
+                                            <option value="Norge">Norge</option>
+                                            <option value="Danmark">Danmark</option>
+                                            <option value="Finland">Finland</option>
+                                            <option value="Estland">Estland</option>
+                                            <option value="Frankrike">Frankrike</option>
+                                            <option value="Tyskland">Tyskland</option>
+                                            <option value="Spanien">Spanien</option>
+                                            <option value="Storbrittanien">Storbrittanien</option>
+                                            <option value="USA">USA</option>
+                                            <option value="New Zealand">New Zealand</option>
+                                            <option value="Australien">Australien</option>
+                                            <option value="Japan">Japan</option>
                                         </select>
+                                        <div class="input-group-text" id="actual-country"><img src="images/sweden-flag.jpg" alt="Sverige flagga icon" id="country-flag"></div>
                                     </div>
                                 </form>
                             </div>
@@ -182,9 +180,10 @@
                                     <div class="input-group">
                                         <div class="input-group-text" id="check-cell"><img id="check" class="img-fluid"
                                                 src="images/check.png" alt="Checked icon"></div>
-                                        <select class="form-select">
-                                            <option>Postnord</option>
-                                            <option>DHL</option>
+                                        <select class="form-select" id="shipping-form">
+                                            <option value="Postnord">Postnord</option>
+                                            <option value="DHL">DHL</option>
+                                            <option value="Schenker">Schenker</option>
                                         </select>
                                         <div class="input-group-text" id="actual-shipping-fee">7 USD</div>
                                     </div>
@@ -205,7 +204,7 @@
                                 <form>
                                     <div><label for="text" class="form-label">Meddelande <i id="frivilligt">
                                                 (frivilligt)</i></label></div>
-                                    <textarea id="meddelande" name="meddelande" rows="5" cols="100"></textarea>
+                                    <textarea id="meddelande" name="meddelande" rows="5" cols="100" maxlength="1000"></textarea>
                                 </form>
                             </div>
                         </div>

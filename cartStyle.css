@@ -43,12 +43,10 @@ hr {
 
 .cart #varukorg {
     margin-top: 50px;
-    margin-bottom: 25px;
 }
 
 .cart #sammanfattning {
     margin-top: 50px;
-    margin-bottom: 25px;
 }
 
 .cart #delete-button {
@@ -107,6 +105,7 @@ body {
     width: 200px;
     font-weight: bold;
     color: dimgray;
+    margin-top: 50px;
 }
 
 .cart #roligt {
@@ -144,15 +143,11 @@ body {
 }
 
 .cart #col-roligt {
-    margin-bottom: 25px;
-}
-
-.cart #col-land {
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 .cart #col-metod {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .cart #check {
@@ -161,10 +156,6 @@ body {
 
 .cart #check-cell {
     background: none;
-}
-
-.cart #col-slut {
-    margin-bottom: 25px;
 }
 
 .cart #frivilligt {
@@ -190,6 +181,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     /*, 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
     border-radius: 6px;
+    margin-bottom: 25px;
 }
 
 .cart #button-submit {
@@ -200,36 +192,49 @@ body {
     margin-bottom: 25px;
 }
 
-.cart #product-price{
+.cart #product-price {
     width: 20%;
 }
 
-.cart #product-title{
+.cart #product-title {
     width: 30%;
 }
 
-.cart #tom-rad{
+.cart #tom-rad {
     height: 50px;
 }
 
-.cart #totalt-rad{
+.cart #totalt-rad {
     font-weight: bold;
 }
 
-.cart #pris-rad{
+.cart #pris-rad {
     font-weight: bold;
 }
 
-.cart #varav-moms-rad{
+.cart #varav-moms-rad {
     font-size: 14px;
     font-style: italic;
 }
 
-.cart #moms-rad{
+.cart #moms-rad {
     font-size: 14px;
     font-style: italic;
 }
 
-#sammanfattning-table td{
+#sammanfattning-table td {
     border-style: none;
+}
+
+.cart #country-flag {
+    width: 25px;
+}
+
+.cart #actual-country {
+    background: none;
+}
+
+.cart #actual-shipping-fee {
+    background: none;
+    font-weight: bold;
 }

@@ -45,7 +45,6 @@ function saveDataToLocalStorage(e) {
 
 const setError = (element, message) => {
     const formControl = element.parentElement;
-    // console.log(formControl) // kontroll
     const small = formControl.querySelector('small');
     small.innerHTML = message;
     small.style.display = "block";
@@ -66,15 +65,6 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
         alert('Please fill in the form');
         return false;
     }
-
-    /* TEST FUNKTION FÖR ATT KONTROLLERA OM NAMNET INNEHÅLLER BARA BOKSTÄVER. ACCEPTERARAR INTE DUBLA NAMN ("T.EX.: ANN-MARIE")
-    //regex name
-    //const namn = /^[a-zåäöçüûúùéêëèâäàåáïîìíæôöòóÿñ\s]+$/i;
-    const regexN = new RegExp(namn);
-    if (!firstName.match(regexN)) {
-        alert('A name must only contain letters');
-        return false;
-    }*/
 
     if (firstName.length < 2 || firstName.length > 50) {
         //alert('A name must be between 2 and 50 characters long');
@@ -183,7 +173,7 @@ function deleteProduct(button) {
 //------------------------------------------------------------------------------------------------------------------------------------
 //Delete all products from Local Storage
 
-function deleteAllProducts(){
+function deleteAllProducts() {
     let products = JSON.parse(localStorage.getItem("products"));
     //Clear the array
     products.length = 0;
@@ -220,7 +210,7 @@ function addActionListener() {
         deleteProduct(button);
     })
     );
-    updateForms.forEach((form) => form.addEventListener("submit",  (e) => {
+    updateForms.forEach((form) => form.addEventListener("submit", (e) => {
         //Prevent form from submitting
         e.preventDefault();
         updateQuantity(form);
@@ -273,13 +263,13 @@ showTotalSum();
 //--------------------------------------------------------------------------------------------------------------------------------------
 //Update quantity
 
-function updateQuantity(form){
+function updateQuantity(form) {
     let productId = form.parentElement.parentElement.parentElement.querySelector("#artikelnummer").textContent.slice(8);
     console.log(productId); // kontroll
 
     let desiredQuantity = Number(form.parentElement.parentElement.parentElement.querySelector("#number-of-products").value);
     console.log(desiredQuantity); // kontroll
-    
+
     let products = JSON.parse(localStorage.getItem("products"));
 
     for (let i = 0; i < products.length; i++) {
@@ -309,13 +299,99 @@ function fetchAmountOfProducts() {
     if (products.length > 0) {
         document.getElementById("quantity").innerHTML = " " + amountOfProducts + " ";
     }
-    else{
+    else {
         document.getElementById("quantity").innerHTML = " ";
     }
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------
+// Change shipping fee according to contry and leverantör
+let country = "Sverige";
+
+const countrySelect = document.getElementById("country-form")
+countrySelect.addEventListener("change", () => {
+    country = countrySelect.value
+    console.log(country) // kontroll
+    changeFlag(country);
+});
+
+const select = document.getElementById("shipping-form")
+select.addEventListener("change", () => {
+    console.log(select.value) // kontroll
+    changeShippingFee(select.value)
+});
+
+// Change flag according to land of delivery
+function changeFlag(value){
+    let flag = document.getElementById("actual-country")
+    if (value === "Sverige"){
+        flag.innerHTML = "<img src='images/sweden-flag.jpg' alt='Sverige flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Norge"){
+        flag.innerHTML = "<img src='images/norway-flag.jpg' alt='Norge flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Danmark"){
+        flag.innerHTML = "<img src='images/danmark-flag.jpg' alt='Danmark flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Finland"){
+        flag.innerHTML = "<img src='images/finland-flag.png' alt='Finland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Estland"){
+        flag.innerHTML = "<img src='images/estland-flag.png' alt='Estland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Frankrike"){
+        flag.innerHTML = "<img src='images/frankrike-flag.jpg' alt='Frankrike flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Tyskland"){
+        flag.innerHTML = "<img src='images/tyskland-flag.png' alt='Tyskland flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Spanien"){
+        flag.innerHTML = "<img src='images/spanien-flag.jpg' alt='Spanien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Storbrittanien"){
+        flag.innerHTML = "<img src='images/storbrittanien-flag.png' alt='Storbrittanien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "USA"){
+        flag.innerHTML = "<img src='images/usa-flag.png' alt='USA flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "New Zealand"){
+        flag.innerHTML = "<img src='images/new-zealand-flag.jpg' alt='New Zealand flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Australien"){
+        flag.innerHTML = "<img src='images/australien-flag.png' alt='Australien flagga icon' id='country-flag'></img>"
+    }
+    else if (value === "Japan"){
+        flag.innerHTML = "<img src='images/japan-flag.jpg' alt='Japan flagga icon' id='country-flag'></img>"
+    }
+    else{
+        flag.innerHTML = "<img src='images/rainbow-flag.png' alt='Rainbow flagga icon' id='country-flag'></img>"
+    }
+}
 
 
-
-
+function changeShippingFee(value) {
+    let fee = document.getElementById("actual-shipping-fee")
+    if (country === "Sverige"){
+        if(value === "Postnord"){
+            fee.innerHTML = "7 USD"
+        }
+        else if (value === "DHL"){
+            fee.innerHTML = "11 USD"
+        }
+        else if (value === "Schenker"){
+            fee.innerHTML = "17 USD"
+        }
+    }
+    else if (country === "Norge"){
+        if(value === "Postnord"){
+            fee.innerHTML = "12 USD"
+        }
+        else if (value === "DHL"){
+            fee.innerHTML = "17 USD"
+        }
+        else if (value === "Schenker"){
+            fee.innerHTML = "23 USD"
+        }
+    }
+    showTotalSum();
+}

@@ -15,7 +15,7 @@ function loadAPI() {
 function renderAPI(json) {
     let products = "";
     json.forEach((product) => {
-        products += "<div class='col-4'><div class='box' id='box'><p class='index_title' id='product_title'>" + product.title + "</p><div class='index_image_container'><img src=" + product.image + " class='index_images' id='product_image'></div><p class='index_price' id='product_price'>Price: " + product.price + "USD</p><div id='product_id'>" + product.id + "</div><div id='product_description'>" + product.description + "</div></div></div>";
+        products += "<div class='col-12 col-md-4'><div class='box' id='box'><p class='index_title' id='product_title'>" + product.title + "</p><div class='index_image_container'><img src=" + product.image + " class='index_images' id='product_image'></div><p class='index_price' id='product_price'>Price: " + product.price + " USD</p><div id='product_id'>" + product.id + "</div></div></div>";
     });
     document.getElementById("products").innerHTML = products;
     addActionListener(); // adds Event Listener to every "box" element

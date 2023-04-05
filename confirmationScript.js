@@ -39,18 +39,19 @@ showOrderNumber();
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//funktion för att fylla i information om en beställd produkt (från Local Storage)
+//funktion för att fylla i information om beställda produkter (från Local Storage)
 
-function getProductFromLocalStorage() {
-    let product = JSON.parse(localStorage.getItem("myProduct"));
-    console.log(product);
-
-    document.getElementById("product-image").innerHTML = "<img src=" + product.image + " class='img-fluid img-thumbnail' alt='Produkt bild' id='demo-image'/>"
-    document.getElementById("product-info").innerHTML = "<tr><td>" + product.title + "</td><td>" + product.id + "</td><td>1</td><td>" + getPriceWithoutMoms(product.price) + "</td><td>25%</td><td>" + getMoms(product.price) + "</td><td>" + product.price + "</td></tr>"
-
+function getProductsFromLocalStorage() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    console.log(products)
+    let output = "";
+    for (let i = 0; i < products.length; i++) {
+        output += "<tr><td><div id='product-image'><img src=" + products[i].image + " class='img-fluid img-thumbnail' alt='Produkt bild' id='demo-image'></div></td><td>" + products[i].title + "</td><td>" + products[i].id + "</td><td>"+ products[i].quantity + "</td><td>" + getPriceWithoutMoms(products[i].price) + "</td><td>25%</td><td>" + getMoms(products[i].price) + "</td><td>" + products[i].price + "</td></tr>"
+    }
+    document.getElementById("product-info").innerHTML = output;
 }
 
-getProductFromLocalStorage();
+getProductsFromLocalStorage();
 
 //Funktion för att räkna ut pris utan moms:
 function getPriceWithoutMoms(price) {

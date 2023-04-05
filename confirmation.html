@@ -68,52 +68,48 @@
         <p id="date"></p>
       </div>
 
-      <!--Product image-->
-      <div class="col-12 col-sm-2">
-        <div id="product-image"></div> <!--Fylls i med hjälp av JavaScript-->
-      </div>
-
       <!--Product summary-->
       <div class="col-12 col-sm-10">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Produkt</th>
-                <th>Artikelnummer</th>
-                <th>Antal</th>
-                <th>Pris/st.(Moms exkl.)</th>
-                <th>Moms skattesats</th>
-                <th>Moms</th>
-                <th>Totalt(Moms inkl.)</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider" id="product-info"></tbody> <!--Fylls i med hjälp av JavaScript-->
-          </table>
-        </div>
+        <div class="table-responsive text-center"></div>
+        <table class="table" id="products-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Produkt</th>
+              <th>Artikelnummer</th>
+              <th>Antal</th>
+              <th>Pris/st.(Moms exkl.)</th>
+              <th>Moms skattesats</th>
+              <th>Moms</th>
+              <th>Totalt(Moms inkl.)</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider" id="product-info"></tbody> <!--Fylls i med hjälp av JavaScript-->
+        </table>
       </div>
+    </div>
 
-      <!--Customer & Shipping info-->
-      <div class="col-12 text-center" id="shipping">
-        <h3 class="text-center">Leveransinformation</h3>
-        <br>
-        <div class="card-holder" id="card-holder">
-          <div id="shipping-card" class="card">
-            <div class="card-body" id="customer-info"></div> <!--Fylls i med hjälp av JavaScript-->
-          </div>
-        </div>
-      </div>
-
-      <!--Footer-->
-      <div class="col text-center">
-        <div class="text-center" id="beginning">
-          <a href="#">Tillbaka till toppen</a>
+    <!--Customer & Shipping info-->
+    <div class="col-12 text-center" id="shipping">
+      <h3 class="text-center">Leveransinformation</h3>
+      <br>
+      <div class="card-holder" id="card-holder">
+        <div id="shipping-card" class="card">
+          <div class="card-body" id="customer-info"></div> <!--Fylls i med hjälp av JavaScript-->
         </div>
       </div>
     </div>
-    <div id="footer"></div>
+
+    <!--Footer-->
+    <div class="col text-center">
+      <div class="text-center" id="beginning">
+        <a href="#">Tillbaka till toppen</a>
+      </div>
+    </div>
   </div>
-  
+  <div id="footer"></div>
+  </div>
+
   <script src="confirmationScript.js"></script>
 </body>
 
