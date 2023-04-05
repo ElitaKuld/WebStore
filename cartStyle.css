@@ -9,12 +9,23 @@
     justify-content: flex-end;
 }
 
+.VG-header #index-col {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .VG-header #quantity {
     font-weight: bold;
 }
 
 .VG-header #varukorg-image {
     width: 25px;
+}
+
+.VG-header #index-link{
+    font-weight: bold;
+    color: cornflowerblue;
+    text-decoration: underline;
 }
 
 .cart #beginning {

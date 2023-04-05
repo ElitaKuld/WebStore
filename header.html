@@ -13,12 +13,23 @@
     <div class="VG-header">
         <header class="text-center"><a href="index.html" title="Go till Startsidan">
                 <div id="header-name">Mega Store</div>
-            </a></header>
-        <div class="container" id="cart">
-            <button id="cart-button" class="btn" onclick="goToCart()"><img id="varukorg-image" src="images/cart.jpg"
-                    alt="Varukorg icon"><span id="quantity"></span><span id="cart-name">VARUKORG</span></button>
-        </div>
-        <hr>
+            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6" id="index-col">
+                        <nav>
+                            <a id="index-link" href="index.html">PRODUCTS / START PAGE</a>
+                        </nav>
+                    </div>
+                    <div class="col-6" id="cart">
+                        <button id="cart-button" class="btn" onclick="goToCart()"><img id="varukorg-image"
+                                src="images/cart.jpg" alt="Varukorg icon"><span id="quantity"></span><span
+                                id="cart-name">&nbsp;VARUKORG</span></button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </header>
     </div>
     <script src="headerScript.js"></script>
 </body>

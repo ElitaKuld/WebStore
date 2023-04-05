@@ -22,7 +22,6 @@
 }
 
 .index #container {
-    margin-top: 3vw;
     margin-bottom: 3vw;
 }
 
@@ -56,6 +55,14 @@
     text-decoration: none;
 }
 
+.index #index-order-button{
+    font-weight: bold;
+}
+
+.index #beginning {
+    margin-top: 50px;
+}
+
 header #header-name {
     color: #8062ad;
     margin-top: 20px;
@@ -78,6 +85,10 @@ footer {
 
 .confirmation #info-card {
     background-color: rgb(224, 255, 224);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*, 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
+    border-radius: 6px;
+    margin-bottom: 25px;
 }
 
 .confirmation #beginning {
@@ -94,6 +105,10 @@ footer {
 
 .confirmation #shipping-card {
     width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*, 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
+    border-radius: 6px;
+    margin-bottom: 25px;
 }
 
 .confirmation #card-holder {
@@ -199,7 +214,11 @@ footer {
     text-decoration: none;
 }
 
-.order button {
+.order #order-button {
+    font-weight: bold;
+}
+
+.order #go-to-cart-button {
     font-weight: bold;
 }
 
