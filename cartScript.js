@@ -18,9 +18,11 @@ function saveDataToLocalStorage(e) {
     let cardNumber = document.querySelector('#cardNumber').value;
     let expireDate = document.querySelector('#expireDate').value;
     let CVV = document.querySelector('#CVV').value;
+    let shippingFee = document.getElementById("shipping-fee").innerHTML
+    let totalt = document.getElementById("pris-rad").innerHTML
 
     //Validate form
-    if (!validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV)) {
+    if (!validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV, shippingFee)) {
         return false;
     }
 
@@ -35,7 +37,9 @@ function saveDataToLocalStorage(e) {
         city: city,
         cardNumber: cardNumber,
         expireDate: expireDate,
-        CVV: CVV
+        CVV: CVV,
+        shippingFee: shippingFee,
+        totalt: totalt
     }
 
     //Local Storage
@@ -57,9 +61,8 @@ const hideError = (element) => {
 }
 
 // Validate Form
-function validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV) {
+function validateForm(firstName, lastName, email, phoneNumber, address, city, zipCode, cardNumber, expireDate, CVV, shippingFee) {
 
-    let shippingFeeChosen = document.getElementById("shipping-fee").innerHTML;
     let amountOfProducts = JSON.parse(localStorage.getItem("products")).length;
     let isValidated = true;
 
@@ -150,7 +153,7 @@ function validateForm(firstName, lastName, email, phoneNumber, address, city, zi
         isValidated = false;
     }
 
-    if (shippingFeeChosen === "") {
+    if (shippingFee === "") {
         alert("Vänligen välj leveransland och fraktalternativ innan du slutför beställningen");
         isValidated = false;
     }
@@ -277,7 +280,7 @@ function showTotalSum() {
     document.getElementById("pris-rad").innerHTML = priceAndShippingFee.toFixed(2) + " USD"
 
     //Showing moms
-    document.getElementById("moms-rad").innerHTML = (priceAndShippingFee * 0.2).toFixed(2) + " USD"
+    document.getElementById("moms-rad").innerHTML = (priceAndShippingFee * 0.25).toFixed(2) + " USD"
 }
 
 let amountOfProductsInTheCart = JSON.parse(localStorage.getItem("products")).length;

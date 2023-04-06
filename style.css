@@ -159,6 +159,10 @@ footer {
     font-weight: bold;
 }
 
+.confirmation #fraktavgift-rad{
+    border-top-color: white;
+}
+
 .confirmation #sammanfattning-rad{
     border-bottom-color: white;
     border-top-width:initial;
